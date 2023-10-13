@@ -27,22 +27,9 @@ monofont: 'Fira Code'
 
 ![](figures/CPDM-Notes_header.png)
 
-# Just A Few Notes
-
-> **The goal is not to make the program work. The goal is to learn how to make the program work.**
+> **The goal is not to make the program work. The goal is to learn _how_ to make the program work.**
 
 ---
-
-Same stuff that can be done in **R** can be done in **Python**; in this course we are also using cloud environments: 
-
-> **Anaconda Navigator**, also for *Jupyter notebooks*, which contain text and code in the same file.
-Useful for narration of data science tasks.
-
-> **Colab** (Google platform for Data Science),
-
-> **Replit** (learning environment, not for development)
-
-> **Hackerrank**: platform to run and test code.
 
 # A Very Short Introduction to Computer Science
 
@@ -56,7 +43,7 @@ Physical elements are difficult to understand; we need a mental model, an abstra
 One of this models represents a computing system through **six layers**, a convenient *onion* metaphor in which from streams of binary code (*everything in a computer memory is stored digitally as strings of 0s and 1s*) we arrive to a representation of the encoded information.
 Each different layer represents an element of a computing system, with escalating level of abstraction from the actual machine, related to software and hardware.
 
-### 1. Information: Electron Flow
+### Information: Electron Flow
 
 All information is stored in *patterns*; computers use a multimedia language though, allowing to store and manage different kind of content: *text, numbers, audio, image and graphics, video, etc.*
 All the binary code is converted in this different kind of outputs, which have different characteristics.
@@ -121,7 +108,7 @@ There is a specific notation, which has been introduced since 2000 in electro co
 
 This is a fundamental aspect of memory management.
 
-### 2. Hardware: Silicons Valleys
+### Hardware: Silicons Valleys
 
 Hardware architecture is composed of:
 
@@ -151,7 +138,7 @@ The sequential control flow can be modified by the program, with special instruc
 The ability to *write and recognize blocks of code* is a fundamental skill, required to write and read programs.
 Furthermore, the same *program* might be **implemented** in many different way: some are more efficient than the others. To know which is which is the mark of a competent programmer.
 
-### 3.Programming: This Is Your Life Now
+### Programming: This Is Your Life Now
 
 These sequential instructions are called *software*; coding can be done at various levels, in which *low* levels stand for *machine language* and only *high* levels might be interpreted easily by humans.
 
@@ -160,7 +147,7 @@ Remember that a computer can only *read or write*, *add or subtract* (yep...bina
 They can be conceptualized as a sequence of instructions written in a programming language that encode an algorithm and specify how to perform a computation.
 
 All programming languages have generally some basic ways to:
-
+s
 1.  **Input**
 2.  **Output**
 3.  **Do Math**
