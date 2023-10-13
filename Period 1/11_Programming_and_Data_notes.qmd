@@ -1,0 +1,2267 @@
+---
+title: |
+  | Computer Programming and Data Management 1
+author: "solar-san"
+date-modified: "2023-10-13"
+format:
+  html:
+    theme: github
+    toc: true
+    toc-location: left
+    fig-align: center
+    fig-width: 8
+    fig-height: 8
+    html-math-method: katex
+    code-overflow: scroll
+    code-copy: hover
+    highlight-style: gruvbox
+    citations-hover: true
+    footnotes-hover: true
+    header-includes: |
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Code&display=swap" rel="stylesheet">
+mainfont: "Atkinson Hyperlegible"
+monofont: 'Fira Code'
+---
+
+
+
+# Just A Few Notes
+
+> **The goal is not to make the program work. The goal is to learn how to make the program work.**
+
+---
+
+Same stuff that can be done in **R** can be done in **Python**; in this course we are also using cloud environments: 
+
+> **Anaconda Navigator**, also for *Jupyter notebooks*, which contain text and code in the same file.
+Useful for narration of data science tasks.
+
+> **Colab** (Google platform for Data Science),
+
+> **Replit** (learning environment, not for development)
+
+> **Hackerrank**: platform to run and test code.
+
+# A Very Short Introduction to Computer Science
+
+Computational thinking is a fundamental asset in the modern world.
+Computing systems are dynamical entities that interact with their environment; such a system is composed by *hardware*, *software*, *information/* (data).
+
+Physical elements are difficult to understand; we need a mental model, an abstraction that removes complex details allowing us to understand and manage these kind of systems.
+
+## Six Layers: To Drive A Car, Don't Worry About Thermodynamic
+
+One of this models represents a computing system through **six layers**, a convenient *onion* metaphor in which from streams of binary code (*everything in a computer memory is stored digitally as strings of 0s and 1s*) we arrive to a representation of the encoded information.
+Each different layer represents an element of a computing system, with escalating level of abstraction from the actual machine, related to software and hardware.
+
+### 1. Information: Electron Flow
+
+All information is stored in *patterns*; computers use a multimedia language though, allowing to store and manage different kind of content: *text, numbers, audio, image and graphics, video, etc.*
+All the binary code is converted in this different kind of outputs, which have different characteristics.
+
+**Why binary alphabet?** \
+
+*Low voltage = 0; high voltage = 1*; the main driver of this choice is **simplicity.** \
+Computers cannot work well with analog continuous data, which must be digitalised; since they are a finite source of storage and computation, we need a finite number of digits.
+This is done through **discretization/sampling** (the analog flow of information is measured and stored at pre-specified regular intervals) and **quantization** (resulting values are rounded, rounding the infinite streams of decimal of real numbers).
+How it is done affects the **quality** of the conversion (e.g. *sampling rate in audio a\d conversion*: you get more details, such as depth, volume peaks and range of frequencies).
+The quality also depends on the number of digits with which the number is stored -- this is the quantization problem: each sampled point is stored as a number that necessarily has to be discrete to be understood by a computer.
+
+> To sum it up: a discrete memory requires workarounds to digitize and store continuous analog data -- a digital signal becomes a sequence of discrete number, which is in turn represented as binary patterns of fixed length.
+
+*Quick note*: 
+
+* **data**: contains information about an object.
+* **metadata**: the latter is information about the file, which allows detailed storage and management.
+
+Digitization has its perks: with analog signal you may have **degradation** (by travelling through a wire, for instance, or by degradation of the physical support in which the information is stored) and the signal continually fluctuates in voltage up and down.
+Degradation might happen also in digital, but the latter can be easily reshaped and reconstructed since is structure is simpler (it does not fluctuate as much) making it less prone to errors and deterioration, with the consequent loss of data.
+
+**Basic rule of computer representation**: in general, with $n$ bits we can thus represent $2^n$ things (which are all the possible patterns we can make with 0, 1).
+A system for example stored in $2^3$ bits might assume 8 different states, which are then encoded in each different bit patterns (*10100001,11001100, etc*).
+
+Representing text is *somewhat* easier: character sets are (fortunately) finite.
+Standardization has been agreed upon, which allows for their encoding by assigning each a binary string.
+ASCII (*American Standard Code for Information Interchange*) devised a system of 7 bits that allows 128 ($2^7$) unique characters.
+This standardization allows different systems to derive the same information, thus computing a common output.
+
+Each number can be represented in a combination of powers of 2 and it gives meaning to positions in binary code, with different combination of 0, 1 in its seven digits (always 7 digits, because the choice of the power of two was 7):
+
+$$
+65 = 2^6 + 2^0 = 1000001
+$$
+
+1 comes first place ($2^0$) and second place ($2^6$)
+
+A useful formula in this context computes a base change (binary, decimals, hexadecimals, whatever): by calculating the conversion from one base to another, it is possible to *translate* a number in different formats.
+
+$$
+d_{n-1} B_{n-1} + d_{n-1} B_{n-2} +...+ d_1 B_1 +d_0 B_0
+$$ 
+Hexadecimal base ($n_{16}: 0123456789ABCDEF$) is also popular, because it is easier to transform from binary and vice versa.
+
+It is worth mentioning that it is perfectly fine to apply arithmetic to binary numbers; operations are computed by applying a **carry rule**.
+An **Arithmetic Logic Unit** (ALU) allows for carry propagation inside the computer mechanism, thus creating a tool for number manipulation.
+
+Real numbers pose a different problem: to represent decimals.
+With a *byte* (*8 bits*) a simple approach can be conceived, called **fixed point representation**: 4 bits contains information about the integer, the other 4 bits the fractional part ($xxxx.yyyy$).
+This means that the smallest number (different from 0) we can represent is $2^{-4}$, or $\frac{1}{16}$, or $0.0625$, and only $16=2^4$ numbers between 0 and 1 can be represented.
+
+>In conclusion, the main problem is that real numbers are finite while bit configuration are finite: *workarounds* are necessary and so are *trade-offs*.
+The most important one is between *storage size* required for a specific piece of information and its *precision*.
+
+To gain more accuracy a **floating point system** is used (thanks to the binary scientific notation), with a **single** or **double precision** (the former uses 32 bits, the latter 64): 1 bit for the sign, 8 bits for the exponent $N$ of $2^N$ and 23 bits for the significant ($1.2345...*10^10$. As the name suggests, every bit used for storage is doubled in the double precision. To sum it up: floating points uses scientific notation to deliver more information, but requires more storage space in a computer memory.
+
+The basic unit of storage, the minimum number of bits, contains *8 bits* (**1 byte**).
+There is a specific notation, which has been introduced since 2000 in electro communication to distinguish between notation in base 10 and base 2 when addressing computer memory, to avoid confusion.
+
+*Repetita iuvant*: the size of the storage required for a specific digital information can be derived from the number of bits and bytes necessary to represent it in binary form.
+
+This is a fundamental aspect of memory management.
+
+### 2. Hardware: Silicons Valleys
+
+Hardware architecture is composed of:
+
+1.  **CPU** (*Central Processing Unit*), which is composed of a **control unit** and of an **arithmetic/logic unit**.
+2.  **Memory** to store data, accessed by programs (*stored-programs*). The access to memory is random and this is why it is called *Random Access Memory* (RAM). It is either *volatile* or *stable* and contains just numbers: their meaning is context-dependant. This means they are interpreted differently by the CPU for different purposes.
+3.  **I/O peripherals**, such as keyboards and displays: they serve as ways to input data, perform tasks, and visualize the processed output.
+
+Concluding remark: conceptually, memory is a single, large vector of **bytes** (units of 8 bits): each one has a *specific* address which is referred to by memory, and can be either written or read.
+Not all values fit in a single byte, possibly requiring multiple read/write processes.
+
+Accessing storage time is constant: if we have a list of $10^6$ number, it takes the same time to print the first $10$ numbers or every one of them.
+
+#### Machine Languages: Sing the Song of My People
+
+Every CPU is specifically structured to speak in a unique **dialect**; which one of them is dependent by its structure, which is decided on a fundamental level by its manufacturer.
+CPU are designed to recognize, understand and execute **machine instructions** stored in memory as sequence of bits; this sequence of instruction, encoded in binary, is called **machine language**, which is the lowest form of a computer program and is not understandable by humans.
+In other words, it is a middle-layer which stands between hardware and software layers.
+
+The order in which those instructions are stored is the **control flow**: this sequence is followed by the CPU when executing the program form memory, following the sequential address order, counting every step from the first to the last.
+It follows continuously these steps, in a discrete loop:
+
+1.  **Fetch** from memory the next instructions pointed by the PC.
+2.  **Decode** the instruction.
+3.  **Execute** the instruction, and *update* the PC to the next instruction to fetch.
+
+The sequential control flow can be modified by the program, with special instructions.
+The ability to *write and recognize blocks of code* is a fundamental skill, required to write and read programs.
+Furthermore, the same *program* might be **implemented** in many different way: some are more efficient than the others. To know which is which is the mark of a competent programmer.
+
+### 3.Programming: This Is Your Life Now
+
+These sequential instructions are called *software*; coding can be done at various levels, in which *low* levels stand for *machine language* and only *high* levels might be interpreted easily by humans.
+
+Programs have their roots in algorithms: they are encoded in the machine memory and allow, through a process of write, read and flow control, to perform the tasks which we want the computer to execute.
+Remember that a computer can only *read or write*, *add or subtract* (yep...binary), thus algorithms have to take in account any computer's limitation and create the task accordingly.
+They can be conceptualized as a sequence of instructions written in a programming language that encode an algorithm and specify how to perform a computation.
+
+All programming languages have generally some basic ways to:
+
+1.  **Input**
+2.  **Output**
+3.  **Do Math**
+4.  **Execute conditional instructions**
+5.  **Repeat**
+
+But which kind of languages are we referring to?
+The main categories are *natural*, *formal* (designed for specific applications) and *programming* languages; the latter are formal languages (e.g.: *math* is a formal language, with its characteristics of absence of ambiguity and strict syntax rules) that have been designed to express computations.
+Among programming languages there is a *hierarchy*:
+
+-   **High-level**: understandable, useful for productivity. Allows for code readability, thanks to *translators* such as **compilers** and **assemblers** (which translate a human-*mostly*-readable code in machine-readable-language).
+-   **Assembly**: close to the machine language, is a mnemonic representation of machine instructions and data. It is possible to program with it.
+-   **Machine Language**: streams of electric current with which informations and instructions are stored and executed inside the computing systems, represented by streams of 0 and 1.
+
+Syntax rules address which *tokens* (basic element of the syntactic structure of a programming language) are admitted and in which way they must be combined.
+
+# Python: The Flying Circus
+
+## Get Started: "You Are Here"
+
+Python is a **high-level interpreted programming language**.
+An **interpreter** is a computer program that directly executes instructions written in a programming language, without previously compiling them into a machine language problem: this slows the process, but makes the code lines human-readable and programs can be expressed in a few lines (furthermore, it erases the need to *compile* the code *before* running it).
+
+The Python interpreter can be run in many different ways, both locally (as an app) or in a cloud-based environment, in a browser; even by typing `python3` as a terminal script.
+
+The simplest program and usually the first one to be coded in a new programming language is to print the phrase "Hello World" on screen.
+In Python, it is as easy as it gets:
+
+```{python}
+print('Hello World!')
+```
+
+This is an example of a **print statement**, with which a computer is instructed to display some pre-specified data as an output.
+The function `print` can be invoked with many *arguments*, such as multiple strings: the software concatenates one after another, producing thus a single string.
+HTML markup can be added to produce the desired result; furthermore, optional arguments allow for custom *separation* between the arguments and further customization.
+
+Use `' '` to define a string whenever you have to insert quotation marks (such as `" "`) inside it.
+Vice versa if you need to print at least one single mark:
+
+```{python}
+print('"Hello World!", "Lo and Behold" \n', end = "... ")
+```
+
+```{python}
+print('"I am a... \n Computer! "\n')
+```
+
+```{python}
+print('Hello there!', end = "\t")
+```
+
+```{python}
+print('...General', 'Kenobi \n', sep = ' ')
+```
+
+```{python}
+print('Hi', 'here are your numbers', 2, 3.14, 7, 'need anything else? \n', sep = ', ')
+```
+
+```{python}
+print("I'm Mac, nice to meet y'all!")
+```
+
+`print` is a *built-in* function.
+A **function** can be defined as *a named small sub program*, its own input parameters, and an output (*although not all functions return or print an output on screen, even if they perform some tasks inside a program); it is a concept similar to mathematical functions.
+[Help materials](https://docs.python.org/3/library/functions.html#print) report all standard and custom arguments, such as default values (e.g. the standard separator for the `print` function is a white space, " ").
+
+`\n` is a special character called **newline**, which prompts a line break.
+
+Print can be used to mix numerical and string objects: first, it evaluates any expression, then it converts the result into a string, concatenates it with any other given argument and *only then* prints on screen.
+
+```{python}
+print('2 + 2 equals', 2 + 2)
+```
+
+## Arithmetic Operators, Variables and Data Types: Tools of the Trade
+
+**Operators** are special symbols that represent computations, like addition (" + ") and multiplication (" \* ").
+Not so usual suspects:
+
+-   **Power**: `**`
+-   **Floor division**[^1]: `//`
+-   **Module**[^2]: `%`
+
+[^1]: **Floor division** divides two numbers and rounds down to an integer
+
+[^2]: **Modulus** divides two numbers and gets the remainder.
+    Useful to check whether one number is divisible by another or to store the right-most digit from a number.
+
+```{python}
+print(8 / 3)
+print(8 // 3)
+print(8 ** 2)
+print(5 // 2 + 5 % 2)
+```
+
+The module is the rest of an integer division.
+`^` is not the *exponentiation* operator; instead, it is used for a bitwise operator called `XOR` (*eXclusive OR*).
+The `+` operator functions also as a **string concatenator**; `*`, instead, forces repetition as many times as the input given in the expression:
+
+```{python}
+'Were' + 'wolf'
+'Wolf!'*5
+```
+
+To interactively sum values to an object (e.g. to create a **counter** in a loop), instead of:
+
+    my_value = my value + 1
+
+You can use the **augmented assignment operator**:
+
+    my_value += 1
+
+To assess the data type of an object, use the built-in function `type`: a type (**class**) is a category of values.
+Another built in function is `isinstance`, which takes two arguments: an object and a class, and checks whether the given object belongs to the given class.
+
+```{python error = TRUE}
+print(type(2 + 1))
+print(type(3.141593))
+print(type('Marco'))
+isinstance(3.14, float)
+```
+
+**Note**: leading *0s* are not allowed if numbers are used as an input.
+
+```{python eval = TRUE, error = TRUE}
+#| error: True
+print(02) 
+```
+
+Variables are a convenient way to store objects and data; you can refer to or reassign them as many times as necessary.
+The **assignment operator** is `=`.
+The right side is evaluated and then stored in a container, which can be named as you wish for further use.
+
+```{python}
+n = 17
+print(n, ' ---> ', type(n))
+n = 3.14
+print(n, ' ---> ', type(n))
+```
+
+A **name** can be assigned to *different types of variables*, depending on the context.
+This happens because the *object* itself can be tied to different *containers* while maintaining is assignment to a named variable.
+
+```{python}
+n = 17
+print(n, '--->', type(n))
+n = n / 2
+print(n, '--->', type(n))
+```
+
+The **scope** is the *part of the program* from where a variable is accessible.
+It starts from the line of code where the variable is defined, then it proceeds for the following lines.
+
+```{python error = TRUE}
+#| error: true
+z = t
+t = 12
+print(z)
+```
+
+Python always *evaluates the right side* first, so a variable has always have to be **initialized** *before* any subsequent call.
+
+>**Important remark**: while using *notebooks*, remember that any defined variable in a chunk of code is consequently stored for further use.
+On a second execution of the last chunk, the error disappears: to avoid mistakes caused by this, remember to *reset the runtime*.
+Not doing this might result in costly mistakes when presenting reports based on notebooks and markdowns.
+
+**Expressions** are *a combination of values, variables and operators*.
+Even a single value is considered as an expression; the interpreter always *evaluates* it and gives its result as an output.
+**Statements** are *units of code that have an effect*; for example, printing a value on screen.
+They are *executed* and do not have any value.
+
+These are all expressions:
+
+```{python}
+n
+42
+n + 42
+```
+
+These are all statements:
+
+```{python}
+n = n * 2
+print(n)
+```
+
+You can concatenate multiple expressions and/or statements by adding `;` (*semicolon*) after each one of them:
+
+```{python}
+3 + 5 ; 3.5 - 16
+x = 5 ; y = 3.5 ; x + y
+```
+
+>*Summary, in a few words*: a **variable** is a **name** that refers to an **object** with a given **type**.
+
+In Python variables need not to be declared or defined in advance, as is the case in many other programming languages.
+Variable names need to follow some basic rules:
+
+-   They can be as long as necessary.
+-   They must be **significant** for the program reader.
+-   **Lower-case** is always recommended.
+-   `_` can be used inside names.
+-   Numbers and letters are allowed. **Names must never begin with a number**.
+-   You can never use **keywords**,[^3] as variable names.
+
+[^3]: The interpreter uses **keywords** to recognize the structure of a program; they are displayed in a different colour, thus it is not necessary to memorize them to avoid using them.
+
+Python provides an `input( )` function, which:
+
+-   Stops the program;
+-   Waits for the user to type something as input.
+
+When the user presses *enter*, the program resumes and `input( )` returns what the user typed as a **string**, which can be assigned to a *variable*.
+We can also specify a related *prompt*.
+
+    typed_text = input("Enter a text, then press *Enter*")
+    print("You typed ", typed_text)
+
+*Numbers, with this functions, are also stored as strings*: we need a function to **convert** them to the object type, such as integers.
+Otherwise, manipulating them as we would do with numbers (e.g. *tries to do basic maths with strings*) is impossible, since they are completely different things for a computer.
+
+-   `int( )`: converts from string to integers.
+-   `float( )`: convert from strings to floats.
+
+## Bugs and Debuggers: To Err Is Human
+
+Programmers make mistakes: this programming errors are called **bugs** and the process of removing them is to **debug** a program.
+
+> The first step in **debugging a program** is figuring out **where the error is**.
+
+**Syntax errors** are the most frequent bug: since computing languages are formal, it is necessary to respect the strict syntactical structure of the language.
+
+```{python error = TRUE}
+#| error: true
+print(Hello World!')
+```
+
+>First recomendation: **build your program incrementally**: the error will then be in the last line you added.
+
+**Runtime errors**, also called *exceptions*, occur when the program tries to process a given program line which is not specified correctly, such as when an undefined variable is called or an integer is summed to a string.
+
+```{python error = TRUE}
+#| error: true
+print(not_defined_variable)
+```
+
+**Semantic errors**: these bugs are the most difficult to find and correct, since they are related to the **meaning of software**.
+A program may run without generating exceptions, but it may do something entirely different than what was expected.
+
+```{python}
+name = "Marco"
+age = 32
+year = 2022
+future_age = int(year)+3 # assuming the current year is 2022
+print("The age of", name, "in 2025 will be", future_age)
+```
+
+Remember:
+
+> In order to program, you need a *mental model* of how programs work. If you write a program that does not do what you expect, often **the problem is not in the program; it is in your mental model**. 
+
+A specific tool to eliminate bugs is called a **debugger**.
+A debugger runs a program stepwise, inspecting variables in each steps or fixing points of the program (*breakpoints*) where to stop the execution. It is time consuming to set up: a faster remedy consists in **carefully placed `print` statements**.
+
+A **traceback** is a list of function calls which prints the line of code that could not be executed, thus showing after an error occurs in which order the program has run and where the error happened (essentially, which function was running at that time and its callers).
+Error messages are to be read carefully, but **do not assume that everything they say is correct**: for example, sometimes the error might be in the preceding line, instead of the one printed by the error message.\
+Thoughtful stepwise analysis is often necessary and experience solves a whole lot of headaches.
+
+### Semantic Errors: Seek and Destroy
+
+Semantic errors are the most insidious kind: to debug them,
+
+-   Review your program *line by line*; try to figure out the meaning of each line and its output.
+-   Insert carefully placed *print statements* to assess how a variable is being evaluated between steps.
+-   Use a proper debugger.
+
+Always remember:
+
+> "Program testing can be used to show the presence of bugs, but never to show their absence!"\
+*Edsger W. Dijkstra*
+
+## Flow of Control: Unlimited Power
+
+Any sequence of instructions is followed by the program step wise: it begins from the *first*, then goes from top to bottom and from one statement to the next.
+[This site](https://pythontutor.com/render.html#mode=display) allows to visualize the order of execution and its output, expressing in a visual form the concept of **sequential control flow**.
+It also visualizes variables and their content (*Global Frame* stands for *memory*: shows all variables stored for further use as *containers*).
+
+Control flow can be changed by used **conditional statements**, which are statements that modify the sequential control flow.
+For example `if` executes the following code block *only if* the *Boolean test* evaluates to `TRUE`; otherwise, it computes the `else` code block.
+Each condition introduces a **branch**, which is executed sequentially from the first to the last.
+
+*Boolean*[^4] expressions, with type `bool`, can evaluate either `TRUE` or `FALSE` (1 or 0).
+These expressions are coded by using *relational* and *logical* operators.
+In Boolean algebra there are three logical operators: `and`, `or`, and `not`, which represent the main set operations.
+**Truth Tables** and the **De Moivre Laws** are essential tools to compute logical expressions.
+We can combine logical (`and, or, not`) and relational operators (`==, >, <`, etc.) to build complex Boolean expressions: the latter have precedence over the former.
+
+[^4]: George Boole was the first mathematician to define and algebraic system of *logic* in the mid 19^th^ century
+
+-   **Relational** operators:
+    -   `x != y`: x is not equal to y.
+    -   `x == y`: x is equal to y.
+    -   `x > y`: x is greater than to y.
+    -   `x < y`: x is less than y.
+    -   `x >= y`: x is greater than or equal to y.
+    -   `x <= y`: x is less than or equal to y.
+-   **Logical** operators:
+    -   `and`
+    -   `or`
+    -   `not`
+
+>*Important remark*: even though the operands of the *logical operators* should be *boolean expressions*, **any number greater than zero is considered by Python as equivalent to `TRUE`**.
+
+In python you can build complex logical statements to be evaluated: 
+```{python}
+x = -1
+
+(x > 0) and (x < 10) 
+```
+
+Can be written as:
+
+```{python}
+x > 0 and x < 10
+0 < x < 10
+```
+
+```{python}
+y = 3
+y > 0 and y < 10
+```
+
+```{python}
+print(type(x != y), "--->", x != y, 'or', x == y)
+```
+
+```{python}
+42 and True
+```
+
+`elif` (*else if*) allows **chained conditionals**: `if` - `elif` - `else`.
+
+### Code Blocks: Computers are Grammar-Nazis
+
+In python, **code blocks** are sequences of **indented** and **aligned** statements.
+All indents should be of *4 spaces* (do not use tabs!).
+This is a design choice, aimed at *code readability*.
+
+```{python eval = FALSE}
+#| eval: false
+if x > 0:
+  a = x + 1     # This is the beginning of the code block.
+  ...
+  b = a ** 2    #This is the end of the code block.
+print(a, b)
+```
+
+### If, else: What If..
+
+After `if`: only the indented code block runs if the logical condition evaluates to `TRUE`; otherwise, nothing happens.
+`else:` introduces another indented code block, which runs only when the logical `if` condition evaluates to `FALSE`.
+A code example might be:
+
+```{python}
+x = 2
+if x % 2 == 0:
+  print('Taking the first branch:')
+  print(x, 'is even.')
+else:
+  print('Taking the second branch:')
+  print(x, 'is odd.')
+```
+
+```{python}
+x = 3
+if x % 2 == 0:
+  print('Taking the first branch:')
+  print(x, 'is even.')
+else:
+  print('Taking the second branch:')
+  print(x, 'is odd.')
+```
+
+There is no limit to the number of `elif` statements: these are **alternative conditional branches** that run **after the `if`** whenever it evaluates to `False` and **only if their own statement evaluates to `True`**.\
+An `else` statement is not necessary; if it is present though, it *has* to be put at the end of the code block.
+Another way to achieve the same result is by using **nested ifs**: however, they become difficult to read, so it is better to avoid them.
+In this case, only the code following the first `True` conditions runs, even if other statements evaluate to `True`.
+
+These are **chained** conditionals:
+
+```{python}
+x = 15
+if 5 <= x and x < 10:    #  5 <= x < 10
+    print("[5-10)")
+elif 10 <= x <= 20:
+    print("[10-20)")
+elif 20 <= x < 30:
+    print("[20-30)")
+elif 40 <= x < 50:
+    print("[40-50)")
+elif 60 <= x < 70:
+    print("[60-70)")
+print("exit")
+
+```
+
+These are **nested** conditionals:
+
+```{python}
+x = 10
+y = 12
+if x == y:
+  print('x and y are equal')
+else:
+  if x < y:
+    print('x is less than y')
+  else:
+    print('x is greater than y')
+print("exit")
+```
+
+Notice how **indentation** is always applied, sequentially, for every nested `else` statement.
+
+Most of the time it is possible to avoid multiple *ifs* by being a little smart and, especially, by programming smart: python yields efficient ways to code complex conditions in highly readable code.
+
+```{python}
+x = 9
+if 0 < x < 10 and type(x) == type(1):
+  print(x, 'is a positive one digit number')
+else:
+  print(x, 'is not an integer!')
+```
+
+```{python}
+x = 5.8
+
+if 0 < x < 10 and type(x) == type(1):
+  print(x, 'is a positive one digit number')
+else:
+  print(x, 'is not an integer!')
+```
+
+Any chunk of code contained in a non executed branch is called **dead code**.
+
+### Loops: You Spin Me Right Round
+
+**Loops** are a fundamental programming tool used to compute repetitive iteration of code blocks.
+Their structure is simple:
+
+```{python}
+for i in range(4):
+  print('Hello!', end = ' ')
+  print('Iteration:', i)
+  
+# The block is repeated 4 time: i = 0, i = 1, i = 2, i = 3
+```
+
+We used as the loop index an **iterable collection** (**sequence**) generated with the `range(begin, end, step)` function, which creates a list of integers from 0 up to $n-1$ (this can be modified by setting different `step`, `start` and `end` arguments).
+Note that `i` is a usable variable inside the loop for further operations.
+
+>Any **iterable collection** can be used as an **iterator** in loops.
+
+```{python}
+for i in range(10, 1, -1):
+  print(i)
+for i in range(1, 6, 2):
+  print(i)
+for i in range(-5, 6, 1):  # I want to print the following interval: [-5, 5]; range, however, takes n - 1 as an end argument.
+  print(i)
+```
+
+```{python}
+for letters in 'Hello, World!':
+  print(letters)
+```
+
+It is very common to **nest** a loop in another loop:
+
+```{python}
+n = 5
+for i in range(1, n + 1):
+  for j in range(1, n + 1):
+    print(i * j, end = ' ')
+  print() # This command prints a new line.
+```
+
+`while` is another *more general* way to express loops: *while* a given **Bool condition** is `TRUE`, a block of code is repeated.
+When the statement evaluates to `FALSE`, the loop ends and the program executes the following step or halts.
+As a general rule: `for` statements can be computed using `while`; the contrary is not always possible.
+
+```{python}
+n = 10
+while n > 0:
+  print(n)
+  n = n - 1
+print('Launch the rocket!')
+```
+
+`break` and `continue` statement can be used within `for` and `while` programs.
+The first statement **forces the program to exit the loop**, jumping to next code line.
+The second **forces the program to check the condition** before computing the next lines of the code block.
+
+```{python}
+x = 1
+
+while True:
+  if x == 1:
+    break
+print('Ha! You just escaped an infinte loop. Good for you.')
+```
+
+```{python}
+for letter in 'Python': 
+  if letter == 'h':
+    continue
+  print('Current Letter :', letter)
+```
+
+#### Some Basic Examples:
+
+```{python}
+#A simple program which prints a chessboard:
+
+r = 8
+c = 8
+
+for j in range(r):
+  for i in range(c):
+    print('-----', end = '')
+  print('-')
+  
+  for i in range(c):
+    print('|    ', end = '')
+  print('|')
+  
+for i in range(c):
+  print('-----', end = '')
+print('-')
+```
+
+Given as an input an integer number, the scope of the program is to print its **binary representation** by using the **subtraction method**: assume that we have only 8 bits (the biggest number we can have is $2^{15} - 1$).
+
+```{python}
+N = 3 # In binary: 11
+
+#1
+for i in range(15, -1, -1):
+  if 2**i <= N:
+    print(1, end = '', sep = '')
+    N = N - 2**i
+  else:
+    print(0)
+```
+
+```{python}
+N = 3
+i = 15
+while i >= 0:
+  if 2**i <= N:
+    print(1, end='', sep='')
+    N = N - 2**i
+  else:
+    print(0, end='', sep='')
+  i = i - 1
+```
+
+*Tricks and tips*: not to be used in front of purists nut..a way to run an infinite loop might be:
+
+```{python, eval = FALSE}
+#| eval: false
+while True:
+  if #a condition is correctly evalued:
+    break 
+  ...
+  
+#or:
+
+done = False
+while not done:
+  try:
+    #if anything happen correctly:
+    done = True #this change prompts the exit from the loop
+```
+
+### Catching Exceptions: Because "Stuff" Happens
+
+The `try` statement allows us to execute a block of code and **tests for errors without blocking the execution**: this is a fundamental tool to validate data inputs and handle *errors*.
+The `except` block lets us **code instructions to handle the error**: it is executed only *if* an exception/error is raised and the program *is not terminated*; as a matter of fact, the structure of this statement is very similar to an `if` statement: **if** an error occurs, apply the **exception**; otherwise, the program will follow its regular structure.
+Be aware that **every error** is handled in the same way.
+
+In some situations it might be desired to **raise** an exception: for example, if a custom  **lookup function** has not found the required value. In this case the built-in `raise()` statement causes an **exception**. The effect is *the same* as when Python raises an exception: you get an error message and a traceback print; as an optional argument, you can provide a detailed error message of your choice. 
+
+## Functions: Automate Everything
+
+*Programming* can be seen as the process to break a large and complex computational task into smaller and simpler sub tasks: the main tool to do so, with the added benefits of readability and re-usability, is to code **functions**.
+Functions are collections of **named statements**: `print`, `len` or `str` are built-in in the software, but functions can be created at will.\
+To wrap a piece of code inside a function is called **encapsulation**: it attaches a *name* to the code and furthermore is allows you to re-use it.
+
+>A **function** is thus a **named sequence of statements** that performs a **computation**.
+
+    #This is the syntax to define a function:
+    def function.name(list of arguments and parameters, separated by commas):
+      indented block of statements
+    #As a result of my function call, a computation is performed.
+
+The first row is called **header**.
+Function definition does not alter the program flow: Python parse the statements in its code block (the **function body**) and does not execute it until it is called.
+This means that **the state of the program does not change while defining a function**: a function call is works as a *detour* in the *flow of execution*, in which your computer goes to the *function body*, runs its statements, and then resumes to the step occurring immediately after the call.
+Inside the function, each **argument** is assigned to a variable called **parameter**.
+
+This kind of structure is called a **compound statements** and is found many times:
+
+```{python eval = FALSE}
+#| eval: false
+'''These are all compound statements:
+'''
+
+def my_function:
+  ... #body
+  result
+
+for i in range(0,100):
+  #loop stuff
+  
+if x == 0:
+  #check condition;
+elif x < 0:
+  #check another condition;
+else:
+  #and thus it branches...
+```
+
+Adding **parameters** to functions unlocks generalization: the same piece of code might be used to produce a variety of results.
+If they are named in the function's arguments list they are called **keyword parameters**.
+
+The **interface** of a function is a *summary* of how it's used.
+A *clean* interface allows the user to call the function without being forced to address unnecessary details.
+It is an agreement between the caller and the function: provided that the correct arguments are given as an input (**preconditions**), the function works as intended.
+If it is not the case, two things might happen: on the one hand, the function needs debugging any time it does not work as intended even though this *agreement* is respected: its **post-conditions** (such as its intended effects and/or side-effects) are not what expected or just plainly wrong.
+On the other hand, the user might need debugging if he cannot use a well-defined and documented function properly.
+
+    #This is the general syntax of a call statement:
+    function_name(arguments = values)
+
+Many functions produce **return values**: they are called **fruitful** functions; these functions can be nested in a call.
+Otherwise, they are called **void** and they return `None`, a special object: even if they may produce an **effect**, they do not have a **return** value.
+
+```{python}
+def area(radius):
+  a = 3.14 * radius ** 2
+  return a
+
+area(5)
+print('Any function is a specific object called --->', type(area))
+```
+
+`None` has its specific class:
+
+```{python}
+
+result = print('')
+result
+print(result, 'is an object of its own class:', type(result))
+```
+
+The `return` statements allows fruitful functions to *output* one or more specified computations on screen.
+In this kind of functions, it might include an **expression**, which can be arbitrarily complex; multiple `return` statements are allowed when we have alternative conditionals.
+
+```{python}
+def square_area(length):
+  return length**2
+```
+
+Usually, the expression's resulting value is assigned to a variable before returning it: this allows for easier debugging.\
+
+It is always a good programming practice to ensure that **all possible `return` values** of a **fruitful function** are considered.
+In the following code chunk, if we had forgotten about the $x = 0$ case, the code would have run without executing any `return` statement, thus making the function **void**.
+
+```{python}
+def absolute_value_right(x):
+  if x > 0:
+    return x
+  elif x == 0:
+    return x
+  else:
+    return -x
+
+absolute_value_right(0)
+
+def absolute_value_wrong(x):
+  if x > 0:
+    return x
+  elif x < 0:
+    return -x
+
+print(absolute_value_wrong(0))
+```
+
+Functions can access variables in two different scopes: **global** and **local**, which are distinct from one another.
+On the one hand, **local** namespace is created by the function call and is immediately populated by the function's arguments and the variables created within the function body; it is *erased* when the function is finished. On the other hand, **global** namespace can be accessed either locally or any time necessary.
+
+> *Remember*: **parameters** and **variables** within functions are **local** and are **destroyed** *when the function call ends*.
+
+```{python}
+def foo(not_important_value):
+  incr = 12
+  a = 10
+  not_important_value = not_important_value + incr + a + 10
+  print('local variable:', a)
+  
+a = 20
+
+foo(8)
+print('global variable: ', a)
+```
+
+A variable defined in the **global** namespace (defined *outside* and *before* a function call) can be read and used from within the function.
+See the difference:
+
+```{python}
+def foo(not_important_value):
+  incr = 12
+  a = 10
+  a = not_important_value + incr + a + 10
+  print('local variable:', a)
+  
+a = 20
+
+foo(8)
+print('global variable: ', a)
+```
+
+You can set a variable as **global** by calling `global my_variable` before performing any computation on it: the following function modify the value of `a` in `__main__` right after its assignment. The **`global` statement** tells the program not to create a new *local* variable, but to use one created in the *global* frame.
+
+```{python}
+def gbl_mod():
+  '''Change "a" value in the __main__ space'''
+  global a
+  a = "99 problems, but a..ain't one"
+
+a = 20
+print (a)
+gbl_mod()
+print(a)
+```
+
+Anyhow, if a **global variable** refers to a **mutable** object, you can **modify** the variable without declaring it first.\
+You have to do a **declaration** only if you want to **reassign** the variable.
+
+**Parameters** can be set to **default** values when defining a function; they can be modified whenever a function is called.
+For example:
+
+```{python}
+print('Hello','World')
+```
+
+The default value for `sep` is " ".
+
+```{python}
+print('Hello', 'World', sep = '_')
+```
+
+We explicitly stated that we want a different separator.
+This structure is the same in every parameter change.
+
+Python `modules` are **containers** for collections of functions or values (e.g.: the `math` module contains a floating point value for $\pi$, with accurate up to 15 digits).
+To *upload* a module:
+
+```{python}
+import math
+math
+```
+
+By convention, `import` statements are usually located at the beginning of a script.
+To *access its objects*, use the **dot notation**: specify the name of both the function and the module, separated by a dot.
+
+```{python}
+radians = 10
+math.sin(radians)
+```
+
+```{python}
+degrees = 45
+radians = degrees * math.pi / 180
+math.cos(radians)
+math.sqrt(2)/2 == math.cos(radians)
+```
+
+To document a function, a **docstring** should be used: it is a text put at the beginning of the function which collects all the relevant information, such as the scope of the function, which type should its argument be, and so on.
+
+```{python eval = FALSE}
+def fib(n):
+  '''
+  Print a Fibonacci series up to n.
+   Args:
+     n: limit of the value to include in the series.
+   Returns:
+     No return value, but print the list.
+  '''
+  if n == 0:
+    print(0) #first Fibonacci value
+  elif n >= 1:
+    print(0, 1, 1, end = ' ') #first three Fibonacci values
+    next = 2
+    previous = 1
+    while next <= n:
+      print(next, end = ' ')
+      new = next + previous #new Fibonacci value
+      previous = next
+      next = new
+  print()
+```
+
+### Recursive Function: Circularity
+
+**Recursive functions** have a circular definition: the function calls itself to compute the desired result.
+It is very common in mathematics; one of the best known examples is the **factorial**, which is defined as: 
+$$
+n! = n (n-1)! = 1 * 2 * 3 \ \ * ...* \ \ n!
+$$
+
+```{python}
+def factorial(n):
+  if n == 0:
+    return 1
+  else:
+    recursion = factorial(n - 1)
+    result = n * recursion
+    return result
+factorial(6)
+```
+
+In other words, it is possible to define a function by calling the same function within its body; it is an elegant solution to many mathematical problems.
+Another example might be:
+
+```{python}
+def countdown(n):
+    if n <= 0:
+        print('Blastoff!')
+    else:
+        print(n)
+        countdown(n - 1)
+countdown(10)
+```
+
+It might happen to prompt an **infinite recursion**: the programs stops after it has reached its maximum recursion depth.
+To solve this kind of error, be sure to check if the program can actually meet a *base case* that stops recursion, and control your code line by line to spot why this is not happening. Use **print statements** to check whether the program is reaching the base case or not.
+
+### Docstrings: or, How-This-Code-Is-Supposed-To-Work
+
+A **docstring** is an indented string located immediately after a function's *header*, containing all useful information required to properly call the function by explaining its *interface*; for example, the following docstring is composed by a brief explanation of what the function does and which is the type of its argument.
+
+```{python eval = FALSE}
+def factorial(n):
+  '''  THIS IS A DOCSTRING!
+  Computes with recursion the factorial of n, which is n! = 1 * 2 * 3 * ... * n. 
+  By definition 0! and 1! evaluate to 1.
+  * n = any NATURAL number.
+  '''
+  if n == 0:
+    return 1
+  else:
+    recursion = factorial(n - 1)
+    result = n * recursion
+    return result
+```
+
+A good rule of thumb is the following: *if you're having trouble explaining the interface of any of your functions, you should try to improve it*.
+
+# Strings: Words, Words, Words
+
+## A String Is a Sequence, and You Can't Change It
+
+A peculiar object in most programming languages, **strings** are **immutable sequences**: ordered collections of other values.
+A *string* is thus a **sequence** of characters which might be accessed one at a time by using the **brackets operator**:
+
+```{python}
+fruit = 'banana'
+print('The word', fruit, 'is', len(fruit), 'characters long.')
+fruit[0:len(fruit)]
+```
+
+The **index** maps the position of each symbol in the string; since it offsets from its beginning, it starts with 0 and ends at $n -1$, where $n$ is the length of the string.
+The function `len` (also applicable to`lists` and other collections such as `tuples` and `sets`) returns the number of characters.
+Indexing is versatile, but *must always be an integer*:
+
+```{python}
+fruit[4:len(fruit)]
+```
+
+```{python}
+i = 0
+fruit[i + 3]
+```
+
+```{python}
+fruit[-6]
+```
+
+A common task is to **traverse** each character of a string and perform some computations or transformations; it is usually done with a loop.
+
+```{python}
+def reverse_word(my_word):
+  '''This function prints the reverse of a given word.
+  Args: 
+  *  my_word = a string.
+  '''
+  index = len(my_word)
+  while index != 0:
+    print(my_word[index - 1], sep = '', end = '')
+    index -= 1
+
+reverse_word(fruit)
+```
+
+The same result might be obtained more cleverly in a single line of code:
+
+```{python}
+fruit[::-1]
+```
+
+>**The moral is**: learn to actually *use* the goddamn program if you want an easy life!
+
+A **slice** is a segment of a strings; it can be selected similarly to the way we index characters: the operator `[n:m]` returns each characters between index `n` and `m`.
+
+```{python}
+s = 'Monty Python'
+s[0:5]
+```
+
+```{python}
+s[6:12]
+```
+
+*Ending* and *starting* (or *both*) indexes might be omitted:
+
+```{python}
+s[:5]
+s[6:]
+```
+
+An optional third argument indicates the step's size; a negative step reverses the indexing (`-1` starts from the end of the string):
+
+```{python}
+def is_palindrome(word):
+    if word == word[len(word)::-1]:
+        return True
+    return False
+  
+is_palindrome('tacocat')
+```
+
+>**Important remark**: strings are immutable (see further ahead for more about *mutable* and *immutable* types).
+Changing an existing string does not produce any effect; nevertheless, you can always create a new string with the desired modifications.
+
+## String Methods: School of Invocation
+
+**Methods** are similar to functions, but might be applied **only** to specific *classes of objects*.
+The syntax is also different: a *method call* is an **invocation** and has a different operator.
+In this example the method `.upper` is invoked upon a variable:
+
+```{python}
+fruit.upper()
+```
+
+The method `.find` returns the **index** in which a first instance of a symbol is found; it can also take a **substring**, a starting point and a stopping point:
+
+```{python}
+s.find('o')
+s.find('thon', 6, 12)
+```
+
+This means that the *substring* "thon" starts at index 8 in the given sequence.
+If it does not find it, it will return `-1`.
+
+`in` and `not in` are **boolean operators** that take two strings as arguments and return `True` whether *the first string is present or not in the second*:
+
+```{python}
+'nana' not in 'banana'
+```
+
+```{python}
+'Monty' in s
+```
+
+Also, **relational operators** work on strings:
+
+```{python}
+'banana' == fruit
+```
+
+**Greater than** and **lesser than** test if the given words are in **alphabetical order**:
+
+```{python}
+'banana' < ' anaconda'
+```
+
+Be careful when dealing with **upper-case** and **lower-case** they are encoded differently, thus *A* is a different thing from *a* for a computer.
+This might cause issues, so be sure tu convert everything to the same *standard format* before performing computations on strings.
+
+```{python}
+'A' == 'a'
+```
+
+Documentation for **string methods** might be found [here](https://docs.python.org/3/library/stdtypes.html#string-methods).
+
+# Lists: Your First Data Structure
+
+A **list** is a *sequence of* **elements** (also called **items**), which might belong to different classes.
+*Nesting* is possible: lists themselves can be elements.
+To define one, use the `[]` operator.
+We can also define **empty lists**.
+
+```{python}
+lst = ['spam', 2.0, 5, [10, 20], []]
+print(lst, '--->', type(lst))
+```
+
+As for strings, we can apply bracket operators `[]` to access a list's item.
+**Indexes start from 0**; a *negative sign* prompts the index to start from the last element.
+
+```{python}
+print(lst[0])
+print(lst[-2])
+```
+
+If you have **nested lists**, use *double brackets* such as `[][]` to reach their items:
+
+```{python}
+nested = [[1,2,3], [4, 5, 6]]
+print(nested[1][1])
+```
+
+Lists are **mutable** (contrary to *strings*); the **bracket operator** can appear on the left hand side of an assignment operator to modify an element.
+List can be traversed with `for` and `while` loops.
+
+```{python}
+lst[0] = 'SPAM, but in allcaps'
+print(lst[0])
+```
+
+```{python}
+ls = [1,2,3,'a','b']
+for elem in ls:      # operator "in" works also on lists
+    print(elem)
+    
+if 'c' not in ls:
+    print('character \'c\' is NOT in the list')
+if 'b' in ls:
+    print('character \'b\' is in the list at index:', ls.index('b')) 
+if 1 in ls:
+    print('integer \'1\' is in the list at index:', ls.index(1))    
+
+# pos = ls.index(5)  
+
+try:     
+  pos = ls.index(5)  
+  print("integer '5' is in the list at index:", pos)    
+except:
+  print('integer 5 is NOT in the list')
+```
+
+```{python}    
+my_list = [1,4,'o','a','b']
+for elem in my_list:
+  print(elem)
+for i in range(len(my_list)):  # function len() works also on lists
+    print("at index:", i, "-", my_list[i])
+```
+
+```{python}
+my_list = [1,4,'o','a','b']
+i = 0
+while i < len(my_list):  # function len() works also on lists
+    print("at index:", i, "-", my_list[i])
+    i += 1
+```
+
+Lists provide [methods](https://docs.python.org/3/tutorial/datastructures.html) to perform a variety of computations: since they are a mutable object, many of them can change the content of the list.
+
+-   `list.append()` adds an item to the end of the list.
+
+```{python}
+my_list = ['a', 'b', 'c']
+print(my_list)
+my_list.append('d')
+print(my_list)
+```
+
+-   `del` operator removes one or more elements; can be used in combination with the **slice** operator.
+
+```{python}
+del my_list[0]
+print(my_list)
+```
+
+-   `list.insert()` adds an element in a specified position.
+
+```{python}
+my_list.insert(0, 'a')
+print(my_list)
+```
+
+And many more.
+
+Strings can be converted in lists, and vice versa.
+
+-   `list.split()`: from `str` to `list`
+
+```{python}
+s = 'the cat is on the table'
+my_list = s.split()
+print(my_list, '----->', type(my_list))
+```
+
+-   `'separator'.join(my_list)`: from `list` to `str`
+
+```{python}
+my_string = '-'.join(my_list)   #using '-' as-a-separator
+print(my_string, '----->', type(my_string))
+```
+
+There are powerful tools to initialize a string in `python` since it supports **list comprehension**, which constructs lists in a *natural* way, similar to the definition of *sets*.
+For example:
+
+$$
+S = \{ x^2| x \in [0, 9] \}
+$$ 
+$$
+V = \{2^i| i \in [0,12] \}
+$$
+
+Can be initialized as:
+
+```{python}
+S = [x**2 for x in range(10)]
+print('S =', S)
+V = [2**i for i in range(13)]
+print('V =', V)
+```
+
+In other words, *list comprehension* can be used to concisely *form a new list*. It can also **filter** the elements of a collection.
+Indeed we transform each element passing the filter in one concise expression.
+This kind of expression takes the basic form:
+
+> `[expr for val in collection [if condition]]`
+
+Both `expr` and `condition` can be expressed in terms of `val`, which in turn is applied on the collection.
+In addition, the condition can be omitted. 
+
+>It is important to pay attention to the *syntactical structure* of **list comprehension**: the **variable** is defined **after the expression**; both of them have to be **iterable**. `if` statements can be added to instruct the program to execute the code only if certain conditions are met.
+
+Remember: **lists when printed are first converted in strings**.
+
+## Lists and Strings Methods: Object Oriented
+
+Lists provide **methods** that performs variety of useful operations.
+Since lists are *mutable*, these methods can perform a variety of transformations, for example:
+
+```{python}
+t = ['a', 'b', 'c']
+print(t)
+t.extend(['k','k'])
+print(t)
+```
+
+The method `list.extend()` takes a list as an argument.
+It is really efficient, because the old list disappears completely from *memory*; although similar to a *combine* command, which keeps the old variable in memory.
+
+```{python}
+t = ['a', 'b', 'c']
+t = t + ['j', 'k']
+print(t)
+```
+
+This last method **creates a new list**; others such as `.append` modify the existing list instead.
+When you apply a list method to an object, *it usually transforms it in a list*:
+
+```{python}
+t.extend('bla')
+t.append('bla')
+print(t)
+```
+
+A useful method is `list.sort()`: it sort lists of homogeneous elements of the same type, which can be also numbers.
+
+```{python}
+s = ["cal", "ca", "Ga", "Ga ", "Ga1", "123"]
+print("original:", s)
+s.sort()
+#To apply the method you need to have the same type of object in the list you want ordered.
+print("sorted:", s) 
+
+#####
+
+s = [1, 3, 9.89, 8, 3, 57]
+s.sort(reverse = True)
+print(s)
+```
+
+The built-in function `sort` performs the same operation, but creates a new list with the result.
+
+```{python}
+new_sorted = s.sort()
+print(new_sorted, s)
+###
+new_sorted = sorted(s)
+print(new_sorted, s)
+```
+
+It is possible to turn almost everything in a list with the command `list`, which performs a *type transformation* (similarly to '`int` and `float`):
+
+```{python}
+list_var = list('Hello')
+type(list_var)
+```
+
+To produce a *string* from a *list* you can use the `.join` method, which allows you to decide the *separator*:
+
+```{python}
+l = ['H', 'e', 'l', 'l', 'o' ]
+new_string = '-'.join(l)
+print(new_string)
+```
+
+Note that since `.join` is a string method, the list is passed as an argument and the method is applied to '-': it works by joining each element of the list to the string '-', working as a *separator* or *delimiter*.
+The opposite result can be obtained with the `split` method; the `delimiter` again is an optional argument specifying which characters are to be used as word boundaries.
+
+```{python}
+delimiter = '-'
+new_string = 'Hello-World!'
+new_list = new_string.split(delimiter)
+print(new_list)
+```
+
+This *methods* are always to be preferred to `for` loops and **iteration** as they are *computationally expensive* in an interpreted language such as Python (or R).
+
+To delete an element you can use the `.remove` method: to add a new element, the `.insert` method.
+
+```{python}
+l.remove('o')
+print(l)
+```
+
+`.insert(i, x)` takes two arguments: `i` is the index of the element to be inserted, while `x` its value.
+
+```{python}
+l.insert(4, 'o')
+print(l)
+```
+
+To remove an element and return the value of the element removed, use the `.pop` method.
+It needs the **index** of the element you want to remove and return.
+
+```{python}
+new_new_list = [1, 2, 'cat', 3, 4, 5, 6]
+print(new_new_list)
+
+######
+
+new_new_list.pop(new_new_list.index('cat'))
+print(new_new_list)
+```
+
+Without the index it removes the last element of the list.
+
+```{python}
+new_new_list.pop()
+print(new_new_list)
+```
+
+To obtain **substrings**, there is the `.split` method: it returns a list of separate elements obtained by splitting a list into smaller *tokens*.
+
+```{python}
+long_line_codes = "AW124ad;  BD444CJ; DE765TR; BE145TI"
+list_of_codes = long_line_codes.split(';')
+print(list_of_codes)
+```
+
+The method `.strip` removes *space characters* from strings.
+It is really efficient if combined with *list comprehension*.
+
+```{python}
+list_of_codes = [x.strip() for x in list_of_codes]
+print(list_of_codes)
+```
+
+Most list methods are **void**: they modify the list and return `None`.
+
+```{python}
+acdb = ['a', 'c', 'd', 'b']
+abcd = acdb.sort()
+print(abcd)
+```
+
+## Lists As Objects: OOJ 101
+
+Lists are **objects**, which have values assigned: notice the difference with *strings* and *numbers*.
+The association of a *value* to a *variable* is called **reference**:
+
+```{python}
+a = 'same'
+b = 'same'
+
+a is b
+```
+
+```{python}
+'same' not in a and b
+```
+
+In this case, both variables refers to the same object, which is a string.
+An object with more than a reference is called **aliased**.
+Be careful when aliasing **mutable** objects:
+
+```{python}
+a = ['same', 'same']
+b = a
+print(a, b)
+###
+a[0] = 'not same'
+print(a, b) 
+
+```
+
+Notice how both a and b were modified by a single statement.
+
+>*It is safer to avoid aliasing when referring to mutable objects*.
+
+Notice the difference with **lists**:
+
+```{python}
+a = [1, 2, 3]
+b = [1, 2, 3]
+
+a is b
+```
+
+Even though the two lists are identical (they have the same **value**), they are considered by the program to be **two different objects**, although for any other purpose they are indeed *identical*.
+
+# Simple Algorithms: Solving Problems - Stepwise
+
+## Accumulator Pattern:
+
+There are some common patterns which can be used while coding in an imperative programming language such as python.
+
+-   **Traversing** an iterable object, such as a list, to **accumulate** a final result.
+-   For example, after each traverse, a single value has to be accumulated, such as a *total sum* or a *maximum value*.
+-   The final result is also called a **reduction**, for it reduces a multi-dimensional object into a single value.
+
+The main steps of this algorithm are: 
+
+1. Setting an **accumulator** variable to an initial variable.
+2. **Iterating** by traversing the element of the object.
+3. **Updating** the accumulator variable at each iteration with the traverse item.
+
+An example might be a function which performs a **sum**, such as: 
+$$
+\sum_{n = i}^{N} a_i = a_1 + a_2 + ... + a_n 
+$$
+
+where $a_i \in N$ (or performs a concatenation of a list of strings).
+An accumulator pattern apply the **associative property**: 
+$$
+\sum_{n = i}^{N} a_i = \sum_{n = i}^{N -1} a_i + a_N = \sum_{n = i}^{N -2} a_i + a_{N-1} + a_N...
+$$
+
+The accumulator, in fact, has to *store a partial sum* in each step it iterates; only at the end the *sum* will be complete ($1 \leq i \leq N$) and has to be *initialized* at 0 (because *zero* is the **neutral element** in a sum: can be added to any number without changing its value).
+
+```{python}
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+acc = 0             # initialize to 'zero', since it's the sum returned for an empty input list  
+for n in nums:
+    acc = acc + n   # sum to the accumulator 
+print("SUM:", acc)
+
+print("Use sum:", sum(nums))
+
+strs = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+acc = ""            # initialize to 'empty string', as it's the sum returned for an empty input list
+for s in strs:
+    acc = acc + s   # append to the accumulator 
+print("SUM:", acc)
+```
+
+>The pattern is straightfoward: first, inizialise an *accumulator* to a proper neutral value; then, *iterate a computation* and *store the partial result* for a given number of time, until the multi-dimensional objects is *reduced* to a single value of interest.
+
+## Existential Proposition: Is There Anybody Out There?
+
+Another common paradigm is to traverse an iterable object to *verify whether one of its elements satisfy a certain* **condition**.
+It is usually framed with the proposition: "if there exists an element for which..".
+An example might be to scan a given sequence of integers to verify if it contains at least one positive number: $\exists n \in S, n > 0$.
+A pattern has to *traverse* the sequence $S$, stopping if the *condition* is met.
+
+This pattern main steps are:
+
+1.  Assume that the existential proposition is false, and thus **initialize a Boolean flag variable** to `False`. The flag is not changed till the end of the traversal if the existential proposition is `False`.
+2.  During the traversal, **if a met element satisfies the given condition, set the flag to `True`**.
+3.  To optimize the computation, **break** the traversal if the existential hypothesis holds (and the flag has been set to `True`).
+
+```{python}
+nums = [0, -2, 3, -5, -10]
+exist_positive = False
+for n in nums:
+  if n > 0:
+    exist_positive = True
+print("The statement: 'There exists a positive value' is", exist_positive)
+####################
+
+nums = [0, -2, -3, -5, -10]
+exist_positive = False
+for n in nums:
+  if n > 0:
+    exist_positive = True
+    break        # break the execution of the traversal
+print("The statement: 'There exists a positive value' is", exist_positive)
+####################
+
+nums = [0, -2, -3, -5, -10, 1]
+exist_positive = False
+i = 0
+while i < len(nums) and (not exist_positive):
+  if nums[i] > 0:
+    exist_positive = True
+  i += 1
+print("The statement: 'There exists a positive value' is", exist_positive)
+nums = [0, -2, 3, -5, -10]
+exist_positive = False
+for n in nums:
+  if n > 0:
+    exist_positive = True
+print("The statement: 'There exists a positive value' is", exist_positive)
+####################
+
+nums = [0, -2, -3, -5, -10]
+exist_positive = False
+for n in nums:
+  if n > 0:
+    exist_positive = True
+    break        # break the execution of the traversal
+print("The statement: 'There exists a positive value' is", exist_positive)
+####################
+
+nums = [0, -2, -3, -5, -10, 1]
+exist_positive = False
+i = 0
+while i < len(nums) and (not exist_positive):
+  if nums[i] > 0:
+    exist_positive = True
+  i += 1
+print("The statement: 'There exists a positive value' is", exist_positive)
+####################
+```
+
+## Universal Proposition: Are You All the Same?
+
+It is similar to the *existential* proposition, but evaluates **if *all* elements satisfy a given condition**.
+For example, given a sequence of numbers, check whether they are all positive: $\forall x \in S, n >0$.
+In this case, the algorithm has to traverse the whole proposition and it stops whenever any element does not respect the given condition.
+
+Therefore, the main steps of the universal pattern are:
+
+1.  Assume that the universal proposition is true, and thus **initialize a Boolean flag variable to `True`**. The flag is not changed till the end of the traversal, if the universal proposition is maintained `True` till the end.
+2.  During the traversal, **if any element does not satisfy a given condition, set the flag to `False`**.
+3.  To optimize the computation, **`break`** the traversal if the universal hypothesis does not hold (and the flag has been set to `False`).
+
+```{python}
+nums = [0, -2, 3, -5, -10]
+all_positive = True
+for n in nums:
+  if n < 0:
+    all_positive = False
+print("The statement: 'All values are positive' is", all_positive)
+####################
+
+nums = [0, -2, 3, -5, -10]
+all_positive = True
+for n in nums:
+  if n < 0:
+    all_positive = False
+    break  # break the execution of the traversal
+print("The statement: 'All values are positive' is", all_positive)
+####################
+
+nums = [-2, -3, -5, -10]
+all_negative = True
+i = 0
+while i < len(nums) and all_negative:
+  if nums[i] >= 0:
+    all_negative = False
+  i += 1
+print("The statement: 'All values are negative' is", all_negative)
+####################
+```
+
+>Notice that all these problems can also be solved by using **list comprehension**, which is a powerful and elegant tool available only in Python.
+
+## Search Algorithms: Bisect and Conquer
+
+A **linear search** (**sequential**) is an *algorithm* to find an element (**target**) within a list, or in general in any *iterable collection*.
+The algorithm perform this operation *in sequence* until a match is found: meaning, it has to check every item one at a time.
+This progress is linear; in the worst case, given a list of $n$ elements, it has to perform $n$ checks before returning a result.
+We call this comparisons **probes** and on average their number is $n/2$.
+
+One strategy to reduce time is to **sort** the list and *stop searching* if the search reaches an exceeding value: for example, in a ordered list of integers, stop after $n + 1$ for a given number $n$ to be searched, it it has not been found.
+
+A more efficient algorithm can be programmed by performing a **binary search**: if the list is ordered, this strategy makes *at most* $\log_2 n$ comparisons, thus running for a **logarithmic** time.
+
+The strategy is performed by computing the following steps: given an **ordered** list,
+
+1.  The binary search *probes* the **middle element** of the list.
+2.  If it is not equal to the searched item, it is either indexed in a lower or higher position, or it is not in the list.
+3.  Perform again the binary search by **bisecting** the list and performing steps 1 to 3 into one of the two halves of the list, depending on whether the searched element is higher or lower than the probe.
+4.  **Repeat** until the search brings up a result.
+
+At each step this algorithm *halves* the size of the dataset in which it performs the search: from $n = 2^s$ to $2^{s-1}$, to $2^{s-2}$...to $2^1$, to (at last) $2^0$.
+These are $s$ steps, where $s = \log_2 n = \log_2 2^s$.
+This means that even if we double the size of the list ($2n$), we would need just one more step to perform the search.
+
+A program to perform such a search can be written this way:
+
+```{python eval = FALSE}
+#| eval: false
+
+def search_binary(xs, target):
+
+  """
+  Find and return the index of parameter target in list xs
+  """
+  lb = 0           # lower bound of the list's slice
+  ub = len(xs)-1   # upper bound of the list's slice
+
+  while lb <= up:  # the slice xs[lb:ub+1] is NOT EMPTY
+    mid_index = (lb + ub) // 2
+    if target < xs[mid_index]:
+      ub = mid_index-1
+    elif target > xs[mid_index]:
+      lb = mid_index+1
+    else:
+    return mid_index
+  return -1   # target NOT FOUND!
+```
+
+By iterating the **lower bound** and **upper bound** of the list the program performs the search by following the **binary search** algorithm.
+
+# Files: Writing and Reading Into Memory
+
+Everyone intuitively know what a **file** is; actually, for a computer, **it is a sequence of data, a string of ordered bytes stored in non-volatile memory with an associated named locations**.
+Every programming language provide several abstractions for accessing and managing files; *using files* is thus a bit like *taking notes*: you *open* a notebook, *read or write*, then *close* it; it can be done sequentially (one page at a time) or by skipping places.
+
+In Python, opening a file creates a **file handle**; to perform computation on this kind of object, you can invoke the related methods.
+The `open()` function asks to specify the **opening mode**:
+
+-   `r` for reading an existing file (the **default** mode).
+
+-   `r+`: for reading and writing an existing file.
+    ... And many more.
+
+-   `write()`: file opened in write mode:
+
+    -   if there is no file named `test.txt` on the disk, it will be created.
+    -   If there already is a file named `test.txt`, it will be replaced by the file we are writing.
+
+-   `read()`: file opened in read mode.
+
+-   `close()`: close the file and remove the handle.
+
+-   `readline()`: returns everything of line up to and including the **newline character**.
+
+-   `readlines()`: returns a list of strings, with each element containing a line up to and including the **newline character**.
+
+-   `with`: this statement opens and automatically closes the selected files after performing the instructions written in the indented code block.
+
+-   `writelines()`: writes a list of strings.
+
+For example:
+
+```{python eval = FALSE}
+#| eval: false
+fh = open('filename.txt')
+content = fh.read()
+fh.close()
+###
+fh = write('filename.txt', 'w')
+f.write('aa\nbb\ncc')
+f.close()
+```
+
+`with` example:
+
+```{python eval = FALSE}
+#| eval: false
+with open(<pathname>) as f:
+  lines = [x.strip() for x in f]
+```
+
+Files are iterable containers, and thus we can scan as we would do with a list or a string.
+
+```{python eval = FALSE}
+#| eval: false
+f = open('test.txt', 'r')
+theline = f.readline()
+while len(theline) > 0:
+  print(theline, end = '')
+  theline = f.readline()
+f.close()
+```
+
+## Working with Binary Files:
+
+Files storing *photos, videos, zip files, executable programs*, etc. are called **binary files**.
+They are not organized into lines, and cannot be opened with a normal text editor: they do not contain readable characters.
+
+For this kind of file, python can read blocks of **raw bytes**: we can for example *copy and store* by using the opening modes `rb` and `wb` (read/write binary).
+These methods also work for *text files*, because it copies the raw streams of bytes from one file to the other.
+
+## Fetching a File From the Web: Data From the Cloud
+
+To perform this we need the following module:
+
+```{python}
+import urllib.request
+```
+
+Let us fetch some financial data from a website:
+
+```{python}
+url = "https://finanza.repubblica.it/BorsaItalia/Azioni/"
+
+f = urllib.request.urlopen(url)
+str_all = f.read(500) # read the first 500 characters
+f.close()
+
+print(str_all)
+```
+
+This program open the given link (\*\*URL*:* Uniform Resource Locator\*) and read it like a file.
+The following one stores the page:
+
+```{python}
+url = "https://finanza.repubblica.it/BorsaItalia/Azioni"
+
+destination_filename = "local.htm"
+
+urllib.request.urlretrieve(url, destination_filename)
+
+with open(destination_filename) as f:
+    i = 0
+    for l in f:
+        if i < 10:
+            print(l)
+            i += 1
+        else:
+            break
+```
+
+# Dictionaries: From A to Z
+
+**Dictionaries** are a more general concept than lists; a *dictionary* is a **mapping** from *keys* to *values*: they allow association between an *item* and a *key*. They are composed of a collection of pairs of **keys**, **values**:
+
+* **Keys**: distinct indexes. They *must* all be different from each others. They have to be **hashable** objects^[A **Hash** function takes *values of any kind* as an argument and returns an *integer*. Bad things happen when the argument of such a function is a **mutable** object.] (e.g.: integers, strings, even tuples; not lists, which are mutable).
+* **Values**: each value is associated with a *key*. They can be almost everything.
+
+The syntax of their definition is similar to lists; the function `dict()` also creates a dictionary from a given object and can be used to initialize an empty `dict` object. The following program creates a dictionary with indexes `a, b, c` and values `10, 20, 30`:
+
+```{python}
+my_dictionary = {}
+my_dictionary['a'] = 10
+my_dictionary['b'] = 20
+my_dictionary['c'] = 30
+
+print(my_dictionary, '-->', type(my_dictionary))
+```
+
+The same result might be obtained this way:
+
+```{python}
+my_dictionary = {'a':10, 'b':20, 'c':30}
+print(my_dictionary)
+```
+
+The print order is always *unpredictable*: this is caused by not having *integers* as keys. **Each value stored in a dictionary can nevertheless be found by calling its *key*: their order does not matter**.
+
+```{python}
+my_dictionary['c']
+```
+
+Adding an element is really simple: you just need to **specify the couple *key-value* to append**.
+To change an element:
+
+```{python}
+my_dictionary['b'] = 25
+
+print(my_dictionary)
+```
+
+If the dictionary is not empty:
+
+```{python}
+my_dictionary = {'a':15, 'b':30, 'c':45}
+print(my_dictionary)
+```
+
+`len` also works with `dictionaries`; it returns the number of key-values pairs. Furthermore, to **delete** an element, you can use `del`:
+
+```{python}
+del my_dictionary['a']
+print(my_dictionary)
+```
+
+The `in` operator returns `True` if a value appears as a **key** in the dictionary. It is a very efficient way to perform a search, as dictionaries use an implementation technique called **hashtable**:
+
+> The `in` operator takes about the same amount of time, no matter how many items are in the dictionary. This does not happen in strings/list (the search is **linear**).
+
+To look for a **value** instead, you can invoke the `.values()` method:
+
+```{python}
+30 in my_dictionary.values()
+```
+
+This method creates a **collection** of class `dict_values` which can be search by using booleans operators such as `in` or `not in`:
+
+```{python}
+type(my_dictionary.values())
+```
+
+## Lookup: These Are (Not) The Values You Are Looking For
+
+While traversing a *dictionary* we could perform two inverse tasks:
+
+* **Lookup**: given a dictionary and a key, we are looking for its relative value.
+  + This is a simple operation to perform, thanks to the peculiar class of dictionaries.
+* **Reverse Lookup**: given a value and a dictionary, we are looking for its relative key.
+  + This is a complex operation: there might be multiple keys mapped to the same value; the only way to perform such a task is to *search*; this is noticeably slower and might be computationally expensive either if the dictionary gets big or it has to be performed often.
+
+## Memoization: Didn't You Get the Memo?
+
+`Memoization` is a computing pattern in which a previously calculated value is stored to be used later to be looked up instead of performing the same computation another time. It allows to quickly speed up *recursive functions*, such as the `fibonacci`. A previously computed value stored for later use is called a **memo**. Here is a *memoized* version of the `fibonacci`:
+
+```{python}
+known = {0:0, 1:1}
+def fibonacci(n):
+    if n in known:
+        return known[n]
+    res = fibonacci(n-1) + fibonacci(n-2)
+    known[n] = res
+    return res
+```
+
+This version of the function runs much faster, thanks to the compounded effects of *memoization* and *hashtables*.
+
+## Example: Found in Translation
+
+```{python}
+eng2ita = {}
+
+eng2ita['one'] = 'uno'
+eng2ita['two'] = 'due'
+eng2ita['three'] = 'tre'
+
+print(eng2ita)
+```
+
+To scan a dictionary, implement a `for` loop:
+
+```{python}
+for element in eng2ita:
+  print(element, '--->', eng2ita[element])
+
+print(eng2ita)
+```
+
+>**Warning**: the *hashtable* does not guarantee that the order of initialization is followed. Values might not be sorted in the same order in which you stored them and this happens *surely* in dictionaries with a lot of values.
+
+The method `.values()` returns a collection of values, a special list with which you can perform searches and computations:
+```{python}
+'uno' in eng2ita
+```
+```{python}
+vals = eng2ita.values()
+'uno' in vals
+```
+
+In this case, the first operations returns `False` because *uno* is not a key; the second extracts only the values in a special list, thus returning `True` to a similar computation.
+
+`.keys()`, instead, extracts all the keys:
+```{python}
+kys = eng2ita.keys()
+print(kys)
+```
+
+## Example: Counting Words
+
+The scope of the following problem is to count how many times each word of a given text appears. To code this you could create a **dictionary** with a dynamical program in which every time a new word appears it is stored as a key with a value of one; for its every subsequent instance, its value is updated by adding another unit.
+
+>An advantage of the dictionary implementation is that we do not have to know ahead which elements actually appear in the collection, as we only have to iterate the program to obtain the desired result.
+
+```{python}
+Alice_string = 'Alice was beginning to get very tired of sitting by her sister on the bank,\n\
+and of having nothing to do: once or twice she had peeped into the book her\n\
+sister was reading, but it had no pictures or conversations in it, \'and what is\n\
+the use of a book,’ thought Alice ‘without pictures or conversation?\'\n\
+So she was considering in her own mind (as well as she could, for the hot\n\
+day made her feel very sleepy and stupid), whether the pleasure of making a\n\
+daisy-chain would be worth the trouble of getting up and picking the daisies,\n\
+when suddenly a White Rabbit with pink eyes ran close by her.\n\
+There was nothing so VERY remarkable in that; nor did Alice think it so\n\
+VERY much out of the way to hear the Rabbit say to itself, ‘Oh dear! Oh\n\
+dear! I shall be late!’ (when she thought it over afterwards, it occurred to\n\
+her that she ought to have wondered at this, but at the time it all seemed\n\
+quite natural); but when the Rabbit actually TOOK A WATCH OUT OF\n\
+ITS WAISTCOAT-POCKET, and looked at it, and then hurried on, Alice\n\
+started to her feet, for it flashed across her mind that she had never before\n\
+seen a rabbit with either a waistcoat-pocket, or a watch to take out of it, and\n\
+burning with curiosity, she ran across the field after it, and fortunately was\n\
+just in time to see it pop down a large rabbit-hole under the hedge.'
+
+book = Alice_string.split()
+
+def histogram(elems):
+    """ 
+        Algorithm to create and return a dictionary <key, value>, where 'key' belong
+        to the input collection 'elems', and 'value' if the count of how many time 
+        'key' appear in 'elems' (frequency)
+        
+        Args:
+                 elems: a list of elements with replications
+        Returns:
+                 the created dictionary
+    """
+    histo = dict()   # is the same as histo = {}
+    # for each e in the list elements
+    
+    for e in elems:
+        e = e.lower()
+        if e in histo:  # check if e was already found and previously inserted
+            histo[e] += 1 # if YES then update the associated value (+1)
+        else:
+            histo[e] = 1   # otherwise introduce a new pair (e:1)
+    return histo
+
+hist_dict = histogram(book)
+print(hist_dict)
+```
+
+# Tuples: Immutable Sequences of..Stuff
+
+A `tuple`, like a list, is a sequence of values of any type (*strings, lists, numbers, etc.*), indexed by integers; the main difference with lists is that **tuples are immutable**.
+
+It is common to enclose tuples in parentheses; they are composed of a comma-separated list of values:
+
+```{python}
+my_tuple = 'a', 'b', 'c'
+print(my_tuple, '--->', type(t))
+```
+
+Beware, **this is not a tuple**:
+
+```{python}
+my_tuple = 'a'
+print(my_tuple, '--->', type(my_tuple))
+```
+
+To initialize a *tuple with a single element*, you need to finish the assignment with a **comma**:
+
+```{python}
+my_tuple = 'a',
+print(my_tuple, '--->', type(my_tuple))
+```
+
+They can also be created with the `tuple()` function. It can also be used to change the *class* of a list.
+
+```{python}
+t1 = ('a', 'b', 1)
+t2 = 'a', 'b', 1
+t3 = tuple('a')
+
+t1 == t2
+```
+
+```{python}
+type(t3)
+```
+
+**Many *lists subsetting* methods can be applied also to tuples**; for example, **slice**:
+
+```{python}
+print(t1[0:2])
+```
+
+But tuples remain **unmutable**, even though sometimes they behave a lot like lists:
+
+```{python error = TRUE}
+#| error: true
+t1[0] = 2
+```
+
+**Tuple assignment** is a powerful technique that can be used to *swap values*:
+
+```{python}
+a = 1
+b = 2
+c = 3
+a, b, c = b, a, c
+print(a, b, c)
+```
+
+The right hand side is *always evaluated first*; more generally, it can be any kind of sequence.
+It is important to note that the *number of elements* of either side of the assignment operator have to be the same. It is actually a powerful way to swap values without creating a *temporary variable*.
+
+```{python}
+addr = 'monty@python.org'
+uname, domain = addr.split('@')
+print(uname)
+```
+
+## Tuples As Return Values:
+
+A function in Python can only return a *single value*: a workaround can be found if the element is a `tuple`, effectively **allowing to return multiple values at once**. This mechanism is present in *built-in* functions such as `divmod` (which computes the *divisor* and *module* of any given pair of numbers) and can be also used for custom functions.
+
+```{python}
+t = divmod(7 ,2)
+print(t, '-->', type(t))
+```
+
+```{python}
+def min_max(t):
+  return (min(t), max(t))
+
+t = (2, 34, -58, 94)
+print(min_max(t), '-->', type(min_max(t)))
+```
+
+## Variable Length Arguments: Scatter & Gather
+
+Functions can take a **variable number of arguments**: a parameter name that begins with `*` **gathers** the arguments into a tuple:
+
+```{python}
+def print_all(*args):
+  print(args)
+  
+print_all('hello', 'world', '!')
+```
+
+**Scatter** is its complement: if you have a sequence and you want to pass it as multiple argument, you can use the same `*` operator:
+
+```{python error = TRUE}
+#| error: true
+my_tuple = 7, 3
+divmod(my_tuple)
+```
+
+```{python}
+divmod(*my_tuple)
+```
+
+## `zip`: Just Zip It!
+
+`zip` is a *built-in* function that **takes two or more sequences and interleaves them**: this example *zips* a string and a list.
+
+```{python}
+s = 'abc'
+d = [1, 2, 3]
+zip(s, d)
+```
+
+The result is a **zip object**, which is a kind of **iterator** that knows how to iterate through a sequence:
+
+```{python}
+for pairs in zip(s, d):
+  print(pairs)
+```
+
+You cannot select items from a *zip object* by using and index, but you can use one to make a list:
+
+```{python}
+t = list(zip(s, d))
+print(t)
+```
+
+The result is a list of tuples containing the paired items.
+You can also use **tuple assignment** to traverse a list of tuples:
+
+```{python}
+for letters, numbers in t:
+  print(letters, numbers, sep = ' & ')
+```
+
+Each time through the loop, Python selects the next tuple in the list and assigns the elements to `letters` and `numbers`.
+
+If you need to traverse a *sequence* and get both *indexes* and *elements*, you can use the built in function `enumerate`:
+
+```{python}
+for index, element in enumerate('abcdefghijklmnopqrstuvwyz'):
+  print(index, element)
+```
+
+This print an `enumerate object`, which is composed of *pairs* of **indexes** starting from 0 and **elements** taken from the given sequence.
+
+Combining `zip` with `dict` yields a concise way to create a dictionary:
+
+```{python}
+dict(zip(range(1, 27), 'abcdefghijklmnopqrstuvwxyz'))
+```
+
+
+## Dictionaries and Tuples: Sequences Combined
+
+By invoking the `.items()` dictionaries' method you can convert each key-value pair into a tuple, and each tuple into a list's element:
+
+```{python}
+d = {'a':0, 'b':1, 'c':2}
+t = d.items()
+t
+```
+
+A `dict_items` object is another kind of **iterator**; you can use such an object (*which is nothing more than a list of tuples*) to initialize a dictionary:
+
+```{python}
+dict(t)
+```
+
+The method `update` takes a list tuples of two elements as argument and adds them, as a key-value pair, to an existing dictionary.
+
+# Sets: Unordered Collections
+
+A `set` is a collection which is *unordered* and *non-indexed*; each element can be present only a **single** time. In Python, sets are initialized by using *curly brackets* `{}` or the `set` function (for *sets with a single element* or *type transformation*):
+
+```{python}
+my_set = {'apple', 'banana', 'cherry', 'banana'}
+print(my_set, '--->', type(my_set))
+```
+
+```{python}
+my_set = {1, 2, 1, 3, 1, 4, 4, 5, 2}
+print(my_set)
+```
+
+
+Be careful: this syntax `my_set = {}` creates a *dictionary* instead.
+
+>Sets are a powerful *built-in* class useful for **membership testing** and **eliminating duplicate entries**.
+
+Any kind of mathematical operation regarding **sets** can be coded in Python: *logical comparisons, union, intersection, etc.*
+
+* `A.union(B)`: $A \cup B$
+* `A.intersect(B)`: $A \cap B$
+* `A.isdisjoint(B)`: $A \cap B = 0$
+* `A.remove('b')`: $A \setminus \{b\}$
+* `A.add('b')`: $A \cup \{b\}$
+
+The same operations might be computed by using *algebraic operators* such as `-`:
+
+```{python}
+a = {1, 2, 3, 4}
+b = {1, 3}
+a - b
+```
+
+The `in` operator and other **booleans** also work in *sets*: 
+
+```{python}
+'banana' not in my_set
+```
+
+# Mutable vs Unmutable: Objectify
+
+**Objects** might be classified into two main categories: **unmutable**, such as *strings*, *integers/floats*, *tuples*; **mutable**, such as *sets*, *lists*, *dictionaries*. To access the **identity of an object**, we call the `id()` function, which will print an integer which is guaranteed to be *unique* and *constant* for this object during its lifetime. We can think of identity as the **address of the object in memory**. Even though *names* can be changed when assigning variables, they still refer to a specific object with is specific address.
+
+```{python}
+a = 1
+id(a)
+```
+
+```{python}
+id(1)
+```
+
+```{python}
+id(1) == id(a)
+```
+
+```{python}
+my_list = [1, 2 ,3]
+list_adress_1 = id(my_list)
+id(my_list)
+```
+
+```{python}
+my_list = [4, 5, 6]
+list_adress_2 = id(my_list)
+id(my_list)
+```
+
+```{python}
+list_adress_1 == list_adress_2
+```
+
+>When we call a function, we pass arguments to the function **by reference**: it means that the argument we pass is a *reference* to an *object* that *already exists in memory*.
+When the object is of a mutable type, as a side effect of the function call we can change the object/variable of the calling program.
+
+
+
