@@ -42,6 +42,9 @@ vignettes/*.pdf
 # pkgdown site
 docs/
 
+# header
+Period_1/figures
+
 # translation temp files
 po/*~
 
