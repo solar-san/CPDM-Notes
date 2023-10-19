@@ -8,7 +8,7 @@
 
 <meta name="author" content="solar-san">
 
-<title>quarto-inputa0ab9283</title>
+<title>quarto-inpute3462eaf</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -97,6 +97,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="CPDM-Notes_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="CPDM-Notes_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="CPDM-Notes_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<meta name="author" content="solar-san">
+<meta name="image" property="og:image" content="https://github.com/solar-san/CPDM-Notes/blob/main/docs/figures/CPDM-Notes_header.png?raw=true">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&amp;family=Fira+Code&amp;display=swap" rel="stylesheet">
@@ -1689,27 +1691,24 @@ sorted: ['123', 'Ga', 'Ga ', 'Ga1', 'ca', 'cal']
 <div class="cell-output cell-output-stdout">
 <pre><code>['H', 'e', 'l', 'l']</code></pre>
 </div>
-<div class="cell-output cell-output-stdout">
-<pre><code></code></pre>
-</div>
 </div>
 <p><code>.insert(i, x)</code> takes two arguments: <code>i</code> is the index of the element to be inserted, while <code>x</code> its value.</p>
 <div class="cell" data-execution_count="101">
-<div class="sourceCode cell-code" id="cb203"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb203-1"><a href="#cb203-1" aria-hidden="true" tabindex="-1"></a>l.insert(<span class="dv">4</span>, <span class="st">'o'</span>)</span>
-<span id="cb203-2"><a href="#cb203-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(l)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb202"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb202-1"><a href="#cb202-1" aria-hidden="true" tabindex="-1"></a>l.insert(<span class="dv">4</span>, <span class="st">'o'</span>)</span>
+<span id="cb202-2"><a href="#cb202-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(l)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['H', 'e', 'l', 'l', 'o']</code></pre>
 </div>
 </div>
 <p>To remove an element and return the value of the element removed, use the <code>.pop</code> method. It needs the <strong>index</strong> of the element you want to remove and return.</p>
 <div class="cell" data-execution_count="102">
-<div class="sourceCode cell-code" id="cb205"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb205-1"><a href="#cb205-1" aria-hidden="true" tabindex="-1"></a>new_new_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="st">'cat'</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]</span>
-<span id="cb205-2"><a href="#cb205-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(new_new_list)</span>
-<span id="cb205-3"><a href="#cb205-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb205-4"><a href="#cb205-4" aria-hidden="true" tabindex="-1"></a><span class="co">######</span></span>
-<span id="cb205-5"><a href="#cb205-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb205-6"><a href="#cb205-6" aria-hidden="true" tabindex="-1"></a>new_new_list.pop(new_new_list.index(<span class="st">'cat'</span>))</span>
-<span id="cb205-7"><a href="#cb205-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(new_new_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb204"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb204-1"><a href="#cb204-1" aria-hidden="true" tabindex="-1"></a>new_new_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="st">'cat'</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]</span>
+<span id="cb204-2"><a href="#cb204-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(new_new_list)</span>
+<span id="cb204-3"><a href="#cb204-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb204-4"><a href="#cb204-4" aria-hidden="true" tabindex="-1"></a><span class="co">######</span></span>
+<span id="cb204-5"><a href="#cb204-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb204-6"><a href="#cb204-6" aria-hidden="true" tabindex="-1"></a>new_new_list.pop(new_new_list.index(<span class="st">'cat'</span>))</span>
+<span id="cb204-7"><a href="#cb204-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(new_new_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1, 2, 'cat', 3, 4, 5, 6]
 [1, 2, 3, 4, 5, 6]</code></pre>
@@ -1717,34 +1716,34 @@ sorted: ['123', 'Ga', 'Ga ', 'Ga1', 'ca', 'cal']
 </div>
 <p>Without the index it removes the last element of the list.</p>
 <div class="cell" data-execution_count="103">
-<div class="sourceCode cell-code" id="cb207"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb207-1"><a href="#cb207-1" aria-hidden="true" tabindex="-1"></a>new_new_list.pop()</span>
-<span id="cb207-2"><a href="#cb207-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(new_new_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb206"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb206-1"><a href="#cb206-1" aria-hidden="true" tabindex="-1"></a>new_new_list.pop()</span>
+<span id="cb206-2"><a href="#cb206-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(new_new_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1, 2, 3, 4, 5]</code></pre>
 </div>
 </div>
 <p>To obtain <strong>substrings</strong>, there is the <code>.split</code> method: it returns a list of separate elements obtained by splitting a list into smaller <em>tokens</em>.</p>
 <div class="cell" data-execution_count="104">
-<div class="sourceCode cell-code" id="cb209"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb209-1"><a href="#cb209-1" aria-hidden="true" tabindex="-1"></a>long_line_codes <span class="op">=</span> <span class="st">"AW124ad;  BD444CJ; DE765TR; BE145TI"</span></span>
-<span id="cb209-2"><a href="#cb209-2" aria-hidden="true" tabindex="-1"></a>list_of_codes <span class="op">=</span> long_line_codes.split(<span class="st">';'</span>)</span>
-<span id="cb209-3"><a href="#cb209-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(list_of_codes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb208"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb208-1"><a href="#cb208-1" aria-hidden="true" tabindex="-1"></a>long_line_codes <span class="op">=</span> <span class="st">"AW124ad;  BD444CJ; DE765TR; BE145TI"</span></span>
+<span id="cb208-2"><a href="#cb208-2" aria-hidden="true" tabindex="-1"></a>list_of_codes <span class="op">=</span> long_line_codes.split(<span class="st">';'</span>)</span>
+<span id="cb208-3"><a href="#cb208-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(list_of_codes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['AW124ad', '  BD444CJ', ' DE765TR', ' BE145TI']</code></pre>
 </div>
 </div>
 <p>The method <code>.strip</code> removes <em>space characters</em> from strings. It is really efficient if combined with <em>list comprehension</em>.</p>
 <div class="cell" data-execution_count="105">
-<div class="sourceCode cell-code" id="cb211"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb211-1"><a href="#cb211-1" aria-hidden="true" tabindex="-1"></a>list_of_codes <span class="op">=</span> [x.strip() <span class="cf">for</span> x <span class="kw">in</span> list_of_codes]</span>
-<span id="cb211-2"><a href="#cb211-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(list_of_codes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb210"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb210-1"><a href="#cb210-1" aria-hidden="true" tabindex="-1"></a>list_of_codes <span class="op">=</span> [x.strip() <span class="cf">for</span> x <span class="kw">in</span> list_of_codes]</span>
+<span id="cb210-2"><a href="#cb210-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(list_of_codes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['AW124ad', 'BD444CJ', 'DE765TR', 'BE145TI']</code></pre>
 </div>
 </div>
 <p>Most list methods are <strong>void</strong>: they modify the list and return <code>None</code>.</p>
 <div class="cell" data-execution_count="106">
-<div class="sourceCode cell-code" id="cb213"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb213-1"><a href="#cb213-1" aria-hidden="true" tabindex="-1"></a>acdb <span class="op">=</span> [<span class="st">'a'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>, <span class="st">'b'</span>]</span>
-<span id="cb213-2"><a href="#cb213-2" aria-hidden="true" tabindex="-1"></a>abcd <span class="op">=</span> acdb.sort()</span>
-<span id="cb213-3"><a href="#cb213-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(abcd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb212"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb212-1"><a href="#cb212-1" aria-hidden="true" tabindex="-1"></a>acdb <span class="op">=</span> [<span class="st">'a'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>, <span class="st">'b'</span>]</span>
+<span id="cb212-2"><a href="#cb212-2" aria-hidden="true" tabindex="-1"></a>abcd <span class="op">=</span> acdb.sort()</span>
+<span id="cb212-3"><a href="#cb212-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(abcd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>None</code></pre>
 </div>
@@ -1754,28 +1753,28 @@ sorted: ['123', 'Ga', 'Ga ', 'Ga1', 'ca', 'cal']
 <h2 class="anchored" data-anchor-id="lists-as-objects-ooj-101">Lists As Objects: OOJ 101</h2>
 <p>Lists are <strong>objects</strong>, which have values assigned: notice the difference with <em>strings</em> and <em>numbers</em>. The association of a <em>value</em> to a <em>variable</em> is called <strong>reference</strong>:</p>
 <div class="cell" data-execution_count="107">
-<div class="sourceCode cell-code" id="cb215"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb215-1"><a href="#cb215-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="st">'same'</span></span>
-<span id="cb215-2"><a href="#cb215-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="st">'same'</span></span>
-<span id="cb215-3"><a href="#cb215-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb215-4"><a href="#cb215-4" aria-hidden="true" tabindex="-1"></a>a <span class="kw">is</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb214"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb214-1"><a href="#cb214-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="st">'same'</span></span>
+<span id="cb214-2"><a href="#cb214-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="st">'same'</span></span>
+<span id="cb214-3"><a href="#cb214-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb214-4"><a href="#cb214-4" aria-hidden="true" tabindex="-1"></a>a <span class="kw">is</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="104">
 <pre><code>True</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="108">
-<div class="sourceCode cell-code" id="cb217"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb217-1"><a href="#cb217-1" aria-hidden="true" tabindex="-1"></a><span class="co">'same'</span> <span class="kw">not</span> <span class="kw">in</span> a <span class="kw">and</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb216"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb216-1"><a href="#cb216-1" aria-hidden="true" tabindex="-1"></a><span class="co">'same'</span> <span class="kw">not</span> <span class="kw">in</span> a <span class="kw">and</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="105">
 <pre><code>False</code></pre>
 </div>
 </div>
 <p>In this case, both variables refers to the same object, which is a string. An object with more than a reference is called <strong>aliased</strong>. Be careful when aliasing <strong>mutable</strong> objects:</p>
 <div class="cell" data-execution_count="109">
-<div class="sourceCode cell-code" id="cb219"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb219-1"><a href="#cb219-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [<span class="st">'same'</span>, <span class="st">'same'</span>]</span>
-<span id="cb219-2"><a href="#cb219-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> a</span>
-<span id="cb219-3"><a href="#cb219-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a, b)</span>
-<span id="cb219-4"><a href="#cb219-4" aria-hidden="true" tabindex="-1"></a><span class="co">###</span></span>
-<span id="cb219-5"><a href="#cb219-5" aria-hidden="true" tabindex="-1"></a>a[<span class="dv">0</span>] <span class="op">=</span> <span class="st">'not same'</span></span>
-<span id="cb219-6"><a href="#cb219-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a, b) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb218"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb218-1"><a href="#cb218-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [<span class="st">'same'</span>, <span class="st">'same'</span>]</span>
+<span id="cb218-2"><a href="#cb218-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> a</span>
+<span id="cb218-3"><a href="#cb218-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a, b)</span>
+<span id="cb218-4"><a href="#cb218-4" aria-hidden="true" tabindex="-1"></a><span class="co">###</span></span>
+<span id="cb218-5"><a href="#cb218-5" aria-hidden="true" tabindex="-1"></a>a[<span class="dv">0</span>] <span class="op">=</span> <span class="st">'not same'</span></span>
+<span id="cb218-6"><a href="#cb218-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a, b) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['same', 'same'] ['same', 'same']
 ['not same', 'same'] ['not same', 'same']</code></pre>
@@ -1787,10 +1786,10 @@ sorted: ['123', 'Ga', 'Ga ', 'Ga1', 'ca', 'cal']
 </blockquote>
 <p>Notice the difference with <strong>lists</strong>:</p>
 <div class="cell" data-execution_count="110">
-<div class="sourceCode cell-code" id="cb221"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb221-1"><a href="#cb221-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
-<span id="cb221-2"><a href="#cb221-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
-<span id="cb221-3"><a href="#cb221-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb221-4"><a href="#cb221-4" aria-hidden="true" tabindex="-1"></a>a <span class="kw">is</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb220"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb220-1"><a href="#cb220-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
+<span id="cb220-2"><a href="#cb220-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
+<span id="cb220-3"><a href="#cb220-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb220-4"><a href="#cb220-4" aria-hidden="true" tabindex="-1"></a>a <span class="kw">is</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="107">
 <pre><code>False</code></pre>
 </div>
@@ -1822,19 +1821,19 @@ sorted: ['123', 'Ga', 'Ga ', 'Ga1', 'ca', 'cal']
 </span></p>
 <p>The accumulator, in fact, has to <em>store a partial sum</em> in each step it iterates; only at the end the <em>sum</em> will be complete (<span class="math inline">1 \leq i \leq N</span>) and has to be <em>initialized</em> at 0 (because <em>zero</em> is the <strong>neutral element</strong> in a sum: can be added to any number without changing its value).</p>
 <div class="cell" data-execution_count="111">
-<div class="sourceCode cell-code" id="cb223"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb223-1"><a href="#cb223-1" aria-hidden="true" tabindex="-1"></a>nums <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>]</span>
-<span id="cb223-2"><a href="#cb223-2" aria-hidden="true" tabindex="-1"></a>acc <span class="op">=</span> <span class="dv">0</span>             <span class="co"># initialize to 'zero', since it's the sum returned for an empty input list  </span></span>
-<span id="cb223-3"><a href="#cb223-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> nums:</span>
-<span id="cb223-4"><a href="#cb223-4" aria-hidden="true" tabindex="-1"></a>    acc <span class="op">=</span> acc <span class="op">+</span> n   <span class="co"># sum to the accumulator </span></span>
-<span id="cb223-5"><a href="#cb223-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"SUM:"</span>, acc)</span>
-<span id="cb223-6"><a href="#cb223-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb223-7"><a href="#cb223-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Use sum:"</span>, <span class="bu">sum</span>(nums))</span>
-<span id="cb223-8"><a href="#cb223-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb223-9"><a href="#cb223-9" aria-hidden="true" tabindex="-1"></a>strs <span class="op">=</span> [<span class="st">"1"</span>, <span class="st">"2"</span>, <span class="st">"3"</span>, <span class="st">"4"</span>, <span class="st">"5"</span>, <span class="st">"6"</span>, <span class="st">"7"</span>, <span class="st">"8"</span>, <span class="st">"9"</span>, <span class="st">"10"</span>]</span>
-<span id="cb223-10"><a href="#cb223-10" aria-hidden="true" tabindex="-1"></a>acc <span class="op">=</span> <span class="st">""</span>            <span class="co"># initialize to 'empty string', as it's the sum returned for an empty input list</span></span>
-<span id="cb223-11"><a href="#cb223-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> s <span class="kw">in</span> strs:</span>
-<span id="cb223-12"><a href="#cb223-12" aria-hidden="true" tabindex="-1"></a>    acc <span class="op">=</span> acc <span class="op">+</span> s   <span class="co"># append to the accumulator </span></span>
-<span id="cb223-13"><a href="#cb223-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"SUM:"</span>, acc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb222"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb222-1"><a href="#cb222-1" aria-hidden="true" tabindex="-1"></a>nums <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>]</span>
+<span id="cb222-2"><a href="#cb222-2" aria-hidden="true" tabindex="-1"></a>acc <span class="op">=</span> <span class="dv">0</span>             <span class="co"># initialize to 'zero', since it's the sum returned for an empty input list  </span></span>
+<span id="cb222-3"><a href="#cb222-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> nums:</span>
+<span id="cb222-4"><a href="#cb222-4" aria-hidden="true" tabindex="-1"></a>    acc <span class="op">=</span> acc <span class="op">+</span> n   <span class="co"># sum to the accumulator </span></span>
+<span id="cb222-5"><a href="#cb222-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"SUM:"</span>, acc)</span>
+<span id="cb222-6"><a href="#cb222-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb222-7"><a href="#cb222-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Use sum:"</span>, <span class="bu">sum</span>(nums))</span>
+<span id="cb222-8"><a href="#cb222-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb222-9"><a href="#cb222-9" aria-hidden="true" tabindex="-1"></a>strs <span class="op">=</span> [<span class="st">"1"</span>, <span class="st">"2"</span>, <span class="st">"3"</span>, <span class="st">"4"</span>, <span class="st">"5"</span>, <span class="st">"6"</span>, <span class="st">"7"</span>, <span class="st">"8"</span>, <span class="st">"9"</span>, <span class="st">"10"</span>]</span>
+<span id="cb222-10"><a href="#cb222-10" aria-hidden="true" tabindex="-1"></a>acc <span class="op">=</span> <span class="st">""</span>            <span class="co"># initialize to 'empty string', as it's the sum returned for an empty input list</span></span>
+<span id="cb222-11"><a href="#cb222-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> s <span class="kw">in</span> strs:</span>
+<span id="cb222-12"><a href="#cb222-12" aria-hidden="true" tabindex="-1"></a>    acc <span class="op">=</span> acc <span class="op">+</span> s   <span class="co"># append to the accumulator </span></span>
+<span id="cb222-13"><a href="#cb222-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"SUM:"</span>, acc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>SUM: 55
 Use sum: 55
@@ -1855,57 +1854,57 @@ SUM: 12345678910</code></pre>
 <li>To optimize the computation, <strong>break</strong> the traversal if the existential hypothesis holds (and the flag has been set to <code>True</code>).</li>
 </ol>
 <div class="cell" data-execution_count="112">
-<div class="sourceCode cell-code" id="cb225"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb225-1"><a href="#cb225-1" aria-hidden="true" tabindex="-1"></a>nums <span class="op">=</span> [<span class="dv">0</span>, <span class="op">-</span><span class="dv">2</span>, <span class="dv">3</span>, <span class="op">-</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">10</span>]</span>
-<span id="cb225-2"><a href="#cb225-2" aria-hidden="true" tabindex="-1"></a>exist_positive <span class="op">=</span> <span class="va">False</span></span>
-<span id="cb225-3"><a href="#cb225-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> nums:</span>
-<span id="cb225-4"><a href="#cb225-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> n <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb225-5"><a href="#cb225-5" aria-hidden="true" tabindex="-1"></a>    exist_positive <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb225-6"><a href="#cb225-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The statement: 'There exists a positive value' is"</span>, exist_positive)</span>
-<span id="cb225-7"><a href="#cb225-7" aria-hidden="true" tabindex="-1"></a><span class="co">####################</span></span>
-<span id="cb225-8"><a href="#cb225-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb225-9"><a href="#cb225-9" aria-hidden="true" tabindex="-1"></a>nums <span class="op">=</span> [<span class="dv">0</span>, <span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">10</span>]</span>
-<span id="cb225-10"><a href="#cb225-10" aria-hidden="true" tabindex="-1"></a>exist_positive <span class="op">=</span> <span class="va">False</span></span>
-<span id="cb225-11"><a href="#cb225-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> nums:</span>
-<span id="cb225-12"><a href="#cb225-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> n <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb225-13"><a href="#cb225-13" aria-hidden="true" tabindex="-1"></a>    exist_positive <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb225-14"><a href="#cb225-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span>        <span class="co"># break the execution of the traversal</span></span>
-<span id="cb225-15"><a href="#cb225-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The statement: 'There exists a positive value' is"</span>, exist_positive)</span>
-<span id="cb225-16"><a href="#cb225-16" aria-hidden="true" tabindex="-1"></a><span class="co">####################</span></span>
-<span id="cb225-17"><a href="#cb225-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb225-18"><a href="#cb225-18" aria-hidden="true" tabindex="-1"></a>nums <span class="op">=</span> [<span class="dv">0</span>, <span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">10</span>, <span class="dv">1</span>]</span>
-<span id="cb225-19"><a href="#cb225-19" aria-hidden="true" tabindex="-1"></a>exist_positive <span class="op">=</span> <span class="va">False</span></span>
-<span id="cb225-20"><a href="#cb225-20" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb225-21"><a href="#cb225-21" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(nums) <span class="kw">and</span> (<span class="kw">not</span> exist_positive):</span>
-<span id="cb225-22"><a href="#cb225-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> nums[i] <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb225-23"><a href="#cb225-23" aria-hidden="true" tabindex="-1"></a>    exist_positive <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb225-24"><a href="#cb225-24" aria-hidden="true" tabindex="-1"></a>  i <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb225-25"><a href="#cb225-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The statement: 'There exists a positive value' is"</span>, exist_positive)</span>
-<span id="cb225-26"><a href="#cb225-26" aria-hidden="true" tabindex="-1"></a>nums <span class="op">=</span> [<span class="dv">0</span>, <span class="op">-</span><span class="dv">2</span>, <span class="dv">3</span>, <span class="op">-</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">10</span>]</span>
-<span id="cb225-27"><a href="#cb225-27" aria-hidden="true" tabindex="-1"></a>exist_positive <span class="op">=</span> <span class="va">False</span></span>
-<span id="cb225-28"><a href="#cb225-28" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> nums:</span>
-<span id="cb225-29"><a href="#cb225-29" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> n <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb225-30"><a href="#cb225-30" aria-hidden="true" tabindex="-1"></a>    exist_positive <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb225-31"><a href="#cb225-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The statement: 'There exists a positive value' is"</span>, exist_positive)</span>
-<span id="cb225-32"><a href="#cb225-32" aria-hidden="true" tabindex="-1"></a><span class="co">####################</span></span>
-<span id="cb225-33"><a href="#cb225-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb225-34"><a href="#cb225-34" aria-hidden="true" tabindex="-1"></a>nums <span class="op">=</span> [<span class="dv">0</span>, <span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">10</span>]</span>
-<span id="cb225-35"><a href="#cb225-35" aria-hidden="true" tabindex="-1"></a>exist_positive <span class="op">=</span> <span class="va">False</span></span>
-<span id="cb225-36"><a href="#cb225-36" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> nums:</span>
-<span id="cb225-37"><a href="#cb225-37" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> n <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb225-38"><a href="#cb225-38" aria-hidden="true" tabindex="-1"></a>    exist_positive <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb225-39"><a href="#cb225-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span>        <span class="co"># break the execution of the traversal</span></span>
-<span id="cb225-40"><a href="#cb225-40" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The statement: 'There exists a positive value' is"</span>, exist_positive)</span>
-<span id="cb225-41"><a href="#cb225-41" aria-hidden="true" tabindex="-1"></a><span class="co">####################</span></span>
-<span id="cb225-42"><a href="#cb225-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb225-43"><a href="#cb225-43" aria-hidden="true" tabindex="-1"></a>nums <span class="op">=</span> [<span class="dv">0</span>, <span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">10</span>, <span class="dv">1</span>]</span>
-<span id="cb225-44"><a href="#cb225-44" aria-hidden="true" tabindex="-1"></a>exist_positive <span class="op">=</span> <span class="va">False</span></span>
-<span id="cb225-45"><a href="#cb225-45" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb225-46"><a href="#cb225-46" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(nums) <span class="kw">and</span> (<span class="kw">not</span> exist_positive):</span>
-<span id="cb225-47"><a href="#cb225-47" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> nums[i] <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb225-48"><a href="#cb225-48" aria-hidden="true" tabindex="-1"></a>    exist_positive <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb225-49"><a href="#cb225-49" aria-hidden="true" tabindex="-1"></a>  i <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb225-50"><a href="#cb225-50" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The statement: 'There exists a positive value' is"</span>, exist_positive)</span>
-<span id="cb225-51"><a href="#cb225-51" aria-hidden="true" tabindex="-1"></a><span class="co">####################</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb224"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb224-1"><a href="#cb224-1" aria-hidden="true" tabindex="-1"></a>nums <span class="op">=</span> [<span class="dv">0</span>, <span class="op">-</span><span class="dv">2</span>, <span class="dv">3</span>, <span class="op">-</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">10</span>]</span>
+<span id="cb224-2"><a href="#cb224-2" aria-hidden="true" tabindex="-1"></a>exist_positive <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb224-3"><a href="#cb224-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> nums:</span>
+<span id="cb224-4"><a href="#cb224-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> n <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb224-5"><a href="#cb224-5" aria-hidden="true" tabindex="-1"></a>    exist_positive <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb224-6"><a href="#cb224-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The statement: 'There exists a positive value' is"</span>, exist_positive)</span>
+<span id="cb224-7"><a href="#cb224-7" aria-hidden="true" tabindex="-1"></a><span class="co">####################</span></span>
+<span id="cb224-8"><a href="#cb224-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb224-9"><a href="#cb224-9" aria-hidden="true" tabindex="-1"></a>nums <span class="op">=</span> [<span class="dv">0</span>, <span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">10</span>]</span>
+<span id="cb224-10"><a href="#cb224-10" aria-hidden="true" tabindex="-1"></a>exist_positive <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb224-11"><a href="#cb224-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> nums:</span>
+<span id="cb224-12"><a href="#cb224-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> n <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb224-13"><a href="#cb224-13" aria-hidden="true" tabindex="-1"></a>    exist_positive <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb224-14"><a href="#cb224-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span>        <span class="co"># break the execution of the traversal</span></span>
+<span id="cb224-15"><a href="#cb224-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The statement: 'There exists a positive value' is"</span>, exist_positive)</span>
+<span id="cb224-16"><a href="#cb224-16" aria-hidden="true" tabindex="-1"></a><span class="co">####################</span></span>
+<span id="cb224-17"><a href="#cb224-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb224-18"><a href="#cb224-18" aria-hidden="true" tabindex="-1"></a>nums <span class="op">=</span> [<span class="dv">0</span>, <span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">10</span>, <span class="dv">1</span>]</span>
+<span id="cb224-19"><a href="#cb224-19" aria-hidden="true" tabindex="-1"></a>exist_positive <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb224-20"><a href="#cb224-20" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb224-21"><a href="#cb224-21" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(nums) <span class="kw">and</span> (<span class="kw">not</span> exist_positive):</span>
+<span id="cb224-22"><a href="#cb224-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> nums[i] <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb224-23"><a href="#cb224-23" aria-hidden="true" tabindex="-1"></a>    exist_positive <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb224-24"><a href="#cb224-24" aria-hidden="true" tabindex="-1"></a>  i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb224-25"><a href="#cb224-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The statement: 'There exists a positive value' is"</span>, exist_positive)</span>
+<span id="cb224-26"><a href="#cb224-26" aria-hidden="true" tabindex="-1"></a>nums <span class="op">=</span> [<span class="dv">0</span>, <span class="op">-</span><span class="dv">2</span>, <span class="dv">3</span>, <span class="op">-</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">10</span>]</span>
+<span id="cb224-27"><a href="#cb224-27" aria-hidden="true" tabindex="-1"></a>exist_positive <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb224-28"><a href="#cb224-28" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> nums:</span>
+<span id="cb224-29"><a href="#cb224-29" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> n <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb224-30"><a href="#cb224-30" aria-hidden="true" tabindex="-1"></a>    exist_positive <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb224-31"><a href="#cb224-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The statement: 'There exists a positive value' is"</span>, exist_positive)</span>
+<span id="cb224-32"><a href="#cb224-32" aria-hidden="true" tabindex="-1"></a><span class="co">####################</span></span>
+<span id="cb224-33"><a href="#cb224-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb224-34"><a href="#cb224-34" aria-hidden="true" tabindex="-1"></a>nums <span class="op">=</span> [<span class="dv">0</span>, <span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">10</span>]</span>
+<span id="cb224-35"><a href="#cb224-35" aria-hidden="true" tabindex="-1"></a>exist_positive <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb224-36"><a href="#cb224-36" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> nums:</span>
+<span id="cb224-37"><a href="#cb224-37" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> n <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb224-38"><a href="#cb224-38" aria-hidden="true" tabindex="-1"></a>    exist_positive <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb224-39"><a href="#cb224-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span>        <span class="co"># break the execution of the traversal</span></span>
+<span id="cb224-40"><a href="#cb224-40" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The statement: 'There exists a positive value' is"</span>, exist_positive)</span>
+<span id="cb224-41"><a href="#cb224-41" aria-hidden="true" tabindex="-1"></a><span class="co">####################</span></span>
+<span id="cb224-42"><a href="#cb224-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb224-43"><a href="#cb224-43" aria-hidden="true" tabindex="-1"></a>nums <span class="op">=</span> [<span class="dv">0</span>, <span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">10</span>, <span class="dv">1</span>]</span>
+<span id="cb224-44"><a href="#cb224-44" aria-hidden="true" tabindex="-1"></a>exist_positive <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb224-45"><a href="#cb224-45" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb224-46"><a href="#cb224-46" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(nums) <span class="kw">and</span> (<span class="kw">not</span> exist_positive):</span>
+<span id="cb224-47"><a href="#cb224-47" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> nums[i] <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb224-48"><a href="#cb224-48" aria-hidden="true" tabindex="-1"></a>    exist_positive <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb224-49"><a href="#cb224-49" aria-hidden="true" tabindex="-1"></a>  i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb224-50"><a href="#cb224-50" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The statement: 'There exists a positive value' is"</span>, exist_positive)</span>
+<span id="cb224-51"><a href="#cb224-51" aria-hidden="true" tabindex="-1"></a><span class="co">####################</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>The statement: 'There exists a positive value' is True
 The statement: 'There exists a positive value' is False
@@ -1926,32 +1925,32 @@ The statement: 'There exists a positive value' is True</code></pre>
 <li>To optimize the computation, <strong><code>break</code></strong> the traversal if the universal hypothesis does not hold (and the flag has been set to <code>False</code>).</li>
 </ol>
 <div class="cell" data-execution_count="113">
-<div class="sourceCode cell-code" id="cb227"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb227-1"><a href="#cb227-1" aria-hidden="true" tabindex="-1"></a>nums <span class="op">=</span> [<span class="dv">0</span>, <span class="op">-</span><span class="dv">2</span>, <span class="dv">3</span>, <span class="op">-</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">10</span>]</span>
-<span id="cb227-2"><a href="#cb227-2" aria-hidden="true" tabindex="-1"></a>all_positive <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb227-3"><a href="#cb227-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> nums:</span>
-<span id="cb227-4"><a href="#cb227-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> n <span class="op">&lt;</span> <span class="dv">0</span>:</span>
-<span id="cb227-5"><a href="#cb227-5" aria-hidden="true" tabindex="-1"></a>    all_positive <span class="op">=</span> <span class="va">False</span></span>
-<span id="cb227-6"><a href="#cb227-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The statement: 'All values are positive' is"</span>, all_positive)</span>
-<span id="cb227-7"><a href="#cb227-7" aria-hidden="true" tabindex="-1"></a><span class="co">####################</span></span>
-<span id="cb227-8"><a href="#cb227-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-9"><a href="#cb227-9" aria-hidden="true" tabindex="-1"></a>nums <span class="op">=</span> [<span class="dv">0</span>, <span class="op">-</span><span class="dv">2</span>, <span class="dv">3</span>, <span class="op">-</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">10</span>]</span>
-<span id="cb227-10"><a href="#cb227-10" aria-hidden="true" tabindex="-1"></a>all_positive <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb227-11"><a href="#cb227-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> nums:</span>
-<span id="cb227-12"><a href="#cb227-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> n <span class="op">&lt;</span> <span class="dv">0</span>:</span>
-<span id="cb227-13"><a href="#cb227-13" aria-hidden="true" tabindex="-1"></a>    all_positive <span class="op">=</span> <span class="va">False</span></span>
-<span id="cb227-14"><a href="#cb227-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span>  <span class="co"># break the execution of the traversal</span></span>
-<span id="cb227-15"><a href="#cb227-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The statement: 'All values are positive' is"</span>, all_positive)</span>
-<span id="cb227-16"><a href="#cb227-16" aria-hidden="true" tabindex="-1"></a><span class="co">####################</span></span>
-<span id="cb227-17"><a href="#cb227-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-18"><a href="#cb227-18" aria-hidden="true" tabindex="-1"></a>nums <span class="op">=</span> [<span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">10</span>]</span>
-<span id="cb227-19"><a href="#cb227-19" aria-hidden="true" tabindex="-1"></a>all_negative <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb227-20"><a href="#cb227-20" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb227-21"><a href="#cb227-21" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(nums) <span class="kw">and</span> all_negative:</span>
-<span id="cb227-22"><a href="#cb227-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> nums[i] <span class="op">&gt;=</span> <span class="dv">0</span>:</span>
-<span id="cb227-23"><a href="#cb227-23" aria-hidden="true" tabindex="-1"></a>    all_negative <span class="op">=</span> <span class="va">False</span></span>
-<span id="cb227-24"><a href="#cb227-24" aria-hidden="true" tabindex="-1"></a>  i <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb227-25"><a href="#cb227-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The statement: 'All values are negative' is"</span>, all_negative)</span>
-<span id="cb227-26"><a href="#cb227-26" aria-hidden="true" tabindex="-1"></a><span class="co">####################</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb226"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb226-1"><a href="#cb226-1" aria-hidden="true" tabindex="-1"></a>nums <span class="op">=</span> [<span class="dv">0</span>, <span class="op">-</span><span class="dv">2</span>, <span class="dv">3</span>, <span class="op">-</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">10</span>]</span>
+<span id="cb226-2"><a href="#cb226-2" aria-hidden="true" tabindex="-1"></a>all_positive <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb226-3"><a href="#cb226-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> nums:</span>
+<span id="cb226-4"><a href="#cb226-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> n <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb226-5"><a href="#cb226-5" aria-hidden="true" tabindex="-1"></a>    all_positive <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb226-6"><a href="#cb226-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The statement: 'All values are positive' is"</span>, all_positive)</span>
+<span id="cb226-7"><a href="#cb226-7" aria-hidden="true" tabindex="-1"></a><span class="co">####################</span></span>
+<span id="cb226-8"><a href="#cb226-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb226-9"><a href="#cb226-9" aria-hidden="true" tabindex="-1"></a>nums <span class="op">=</span> [<span class="dv">0</span>, <span class="op">-</span><span class="dv">2</span>, <span class="dv">3</span>, <span class="op">-</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">10</span>]</span>
+<span id="cb226-10"><a href="#cb226-10" aria-hidden="true" tabindex="-1"></a>all_positive <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb226-11"><a href="#cb226-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> nums:</span>
+<span id="cb226-12"><a href="#cb226-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> n <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb226-13"><a href="#cb226-13" aria-hidden="true" tabindex="-1"></a>    all_positive <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb226-14"><a href="#cb226-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span>  <span class="co"># break the execution of the traversal</span></span>
+<span id="cb226-15"><a href="#cb226-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The statement: 'All values are positive' is"</span>, all_positive)</span>
+<span id="cb226-16"><a href="#cb226-16" aria-hidden="true" tabindex="-1"></a><span class="co">####################</span></span>
+<span id="cb226-17"><a href="#cb226-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb226-18"><a href="#cb226-18" aria-hidden="true" tabindex="-1"></a>nums <span class="op">=</span> [<span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">10</span>]</span>
+<span id="cb226-19"><a href="#cb226-19" aria-hidden="true" tabindex="-1"></a>all_negative <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb226-20"><a href="#cb226-20" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb226-21"><a href="#cb226-21" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(nums) <span class="kw">and</span> all_negative:</span>
+<span id="cb226-22"><a href="#cb226-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> nums[i] <span class="op">&gt;=</span> <span class="dv">0</span>:</span>
+<span id="cb226-23"><a href="#cb226-23" aria-hidden="true" tabindex="-1"></a>    all_negative <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb226-24"><a href="#cb226-24" aria-hidden="true" tabindex="-1"></a>  i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb226-25"><a href="#cb226-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The statement: 'All values are negative' is"</span>, all_negative)</span>
+<span id="cb226-26"><a href="#cb226-26" aria-hidden="true" tabindex="-1"></a><span class="co">####################</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>The statement: 'All values are positive' is False
 The statement: 'All values are positive' is False
@@ -1977,23 +1976,23 @@ The statement: 'All values are negative' is True</code></pre>
 <p>At each step this algorithm <em>halves</em> the size of the dataset in which it performs the search: from <span class="math inline">n = 2^s</span> to <span class="math inline">2^{s-1}</span>, to <span class="math inline">2^{s-2}</span>…to <span class="math inline">2^1</span>, to (at last) <span class="math inline">2^0</span>. These are <span class="math inline">s</span> steps, where <span class="math inline">s = \log_2 n = \log_2 2^s</span>. This means that even if we double the size of the list (<span class="math inline">2n</span>), we would need just one more step to perform the search.</p>
 <p>A program to perform such a search can be written this way:</p>
 <div class="cell" data-execution_count="114">
-<div class="sourceCode cell-code" id="cb229"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb229-1"><a href="#cb229-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> search_binary(xs, target):</span>
-<span id="cb229-2"><a href="#cb229-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb229-3"><a href="#cb229-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">"""</span></span>
-<span id="cb229-4"><a href="#cb229-4" aria-hidden="true" tabindex="-1"></a><span class="co">  Find and return the index of parameter target in list xs</span></span>
-<span id="cb229-5"><a href="#cb229-5" aria-hidden="true" tabindex="-1"></a><span class="co">  """</span></span>
-<span id="cb229-6"><a href="#cb229-6" aria-hidden="true" tabindex="-1"></a>  lb <span class="op">=</span> <span class="dv">0</span>           <span class="co"># lower bound of the list's slice</span></span>
-<span id="cb229-7"><a href="#cb229-7" aria-hidden="true" tabindex="-1"></a>  ub <span class="op">=</span> <span class="bu">len</span>(xs)<span class="op">-</span><span class="dv">1</span>   <span class="co"># upper bound of the list's slice</span></span>
-<span id="cb229-8"><a href="#cb229-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb229-9"><a href="#cb229-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span> lb <span class="op">&lt;=</span> up:  <span class="co"># the slice xs[lb:ub+1] is NOT EMPTY</span></span>
-<span id="cb229-10"><a href="#cb229-10" aria-hidden="true" tabindex="-1"></a>    mid_index <span class="op">=</span> (lb <span class="op">+</span> ub) <span class="op">//</span> <span class="dv">2</span></span>
-<span id="cb229-11"><a href="#cb229-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> target <span class="op">&lt;</span> xs[mid_index]:</span>
-<span id="cb229-12"><a href="#cb229-12" aria-hidden="true" tabindex="-1"></a>      ub <span class="op">=</span> mid_index<span class="op">-</span><span class="dv">1</span></span>
-<span id="cb229-13"><a href="#cb229-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> target <span class="op">&gt;</span> xs[mid_index]:</span>
-<span id="cb229-14"><a href="#cb229-14" aria-hidden="true" tabindex="-1"></a>      lb <span class="op">=</span> mid_index<span class="op">+</span><span class="dv">1</span></span>
-<span id="cb229-15"><a href="#cb229-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb229-16"><a href="#cb229-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> mid_index</span>
-<span id="cb229-17"><a href="#cb229-17" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span>   <span class="co"># target NOT FOUND!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb228"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb228-1"><a href="#cb228-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> search_binary(xs, target):</span>
+<span id="cb228-2"><a href="#cb228-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb228-3"><a href="#cb228-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">"""</span></span>
+<span id="cb228-4"><a href="#cb228-4" aria-hidden="true" tabindex="-1"></a><span class="co">  Find and return the index of parameter target in list xs</span></span>
+<span id="cb228-5"><a href="#cb228-5" aria-hidden="true" tabindex="-1"></a><span class="co">  """</span></span>
+<span id="cb228-6"><a href="#cb228-6" aria-hidden="true" tabindex="-1"></a>  lb <span class="op">=</span> <span class="dv">0</span>           <span class="co"># lower bound of the list's slice</span></span>
+<span id="cb228-7"><a href="#cb228-7" aria-hidden="true" tabindex="-1"></a>  ub <span class="op">=</span> <span class="bu">len</span>(xs)<span class="op">-</span><span class="dv">1</span>   <span class="co"># upper bound of the list's slice</span></span>
+<span id="cb228-8"><a href="#cb228-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb228-9"><a href="#cb228-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span> lb <span class="op">&lt;=</span> up:  <span class="co"># the slice xs[lb:ub+1] is NOT EMPTY</span></span>
+<span id="cb228-10"><a href="#cb228-10" aria-hidden="true" tabindex="-1"></a>    mid_index <span class="op">=</span> (lb <span class="op">+</span> ub) <span class="op">//</span> <span class="dv">2</span></span>
+<span id="cb228-11"><a href="#cb228-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> target <span class="op">&lt;</span> xs[mid_index]:</span>
+<span id="cb228-12"><a href="#cb228-12" aria-hidden="true" tabindex="-1"></a>      ub <span class="op">=</span> mid_index<span class="op">-</span><span class="dv">1</span></span>
+<span id="cb228-13"><a href="#cb228-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> target <span class="op">&gt;</span> xs[mid_index]:</span>
+<span id="cb228-14"><a href="#cb228-14" aria-hidden="true" tabindex="-1"></a>      lb <span class="op">=</span> mid_index<span class="op">+</span><span class="dv">1</span></span>
+<span id="cb228-15"><a href="#cb228-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb228-16"><a href="#cb228-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> mid_index</span>
+<span id="cb228-17"><a href="#cb228-17" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span>   <span class="co"># target NOT FOUND!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>By iterating the <strong>lower bound</strong> and <strong>upper bound</strong> of the list the program performs the search by following the <strong>binary search</strong> algorithm.</p>
 </section>
@@ -2019,27 +2018,27 @@ The statement: 'All values are negative' is True</code></pre>
 </ul>
 <p>For example:</p>
 <div class="cell" data-execution_count="115">
-<div class="sourceCode cell-code" id="cb230"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb230-1"><a href="#cb230-1" aria-hidden="true" tabindex="-1"></a>fh <span class="op">=</span> <span class="bu">open</span>(<span class="st">'filename.txt'</span>)</span>
-<span id="cb230-2"><a href="#cb230-2" aria-hidden="true" tabindex="-1"></a>content <span class="op">=</span> fh.read()</span>
-<span id="cb230-3"><a href="#cb230-3" aria-hidden="true" tabindex="-1"></a>fh.close()</span>
-<span id="cb230-4"><a href="#cb230-4" aria-hidden="true" tabindex="-1"></a><span class="co">###</span></span>
-<span id="cb230-5"><a href="#cb230-5" aria-hidden="true" tabindex="-1"></a>fh <span class="op">=</span> write(<span class="st">'filename.txt'</span>, <span class="st">'w'</span>)</span>
-<span id="cb230-6"><a href="#cb230-6" aria-hidden="true" tabindex="-1"></a>f.write(<span class="st">'aa</span><span class="ch">\n</span><span class="st">bb</span><span class="ch">\n</span><span class="st">cc'</span>)</span>
-<span id="cb230-7"><a href="#cb230-7" aria-hidden="true" tabindex="-1"></a>f.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb229"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb229-1"><a href="#cb229-1" aria-hidden="true" tabindex="-1"></a>fh <span class="op">=</span> <span class="bu">open</span>(<span class="st">'filename.txt'</span>)</span>
+<span id="cb229-2"><a href="#cb229-2" aria-hidden="true" tabindex="-1"></a>content <span class="op">=</span> fh.read()</span>
+<span id="cb229-3"><a href="#cb229-3" aria-hidden="true" tabindex="-1"></a>fh.close()</span>
+<span id="cb229-4"><a href="#cb229-4" aria-hidden="true" tabindex="-1"></a><span class="co">###</span></span>
+<span id="cb229-5"><a href="#cb229-5" aria-hidden="true" tabindex="-1"></a>fh <span class="op">=</span> write(<span class="st">'filename.txt'</span>, <span class="st">'w'</span>)</span>
+<span id="cb229-6"><a href="#cb229-6" aria-hidden="true" tabindex="-1"></a>f.write(<span class="st">'aa</span><span class="ch">\n</span><span class="st">bb</span><span class="ch">\n</span><span class="st">cc'</span>)</span>
+<span id="cb229-7"><a href="#cb229-7" aria-hidden="true" tabindex="-1"></a>f.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>with</code> example:</p>
 <div class="cell" data-execution_count="116">
-<div class="sourceCode cell-code" id="cb231"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb231-1"><a href="#cb231-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="op">&lt;</span>pathname<span class="op">&gt;</span>) <span class="im">as</span> f:</span>
-<span id="cb231-2"><a href="#cb231-2" aria-hidden="true" tabindex="-1"></a>  lines <span class="op">=</span> [x.strip() <span class="cf">for</span> x <span class="kw">in</span> f]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb230"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb230-1"><a href="#cb230-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="op">&lt;</span>pathname<span class="op">&gt;</span>) <span class="im">as</span> f:</span>
+<span id="cb230-2"><a href="#cb230-2" aria-hidden="true" tabindex="-1"></a>  lines <span class="op">=</span> [x.strip() <span class="cf">for</span> x <span class="kw">in</span> f]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Files are iterable containers, and thus we can scan as we would do with a list or a string.</p>
 <div class="cell" data-execution_count="117">
-<div class="sourceCode cell-code" id="cb232"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb232-1"><a href="#cb232-1" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="bu">open</span>(<span class="st">'test.txt'</span>, <span class="st">'r'</span>)</span>
-<span id="cb232-2"><a href="#cb232-2" aria-hidden="true" tabindex="-1"></a>theline <span class="op">=</span> f.readline()</span>
-<span id="cb232-3"><a href="#cb232-3" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="bu">len</span>(theline) <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb232-4"><a href="#cb232-4" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(theline, end <span class="op">=</span> <span class="st">''</span>)</span>
-<span id="cb232-5"><a href="#cb232-5" aria-hidden="true" tabindex="-1"></a>  theline <span class="op">=</span> f.readline()</span>
-<span id="cb232-6"><a href="#cb232-6" aria-hidden="true" tabindex="-1"></a>f.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb231"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb231-1"><a href="#cb231-1" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="bu">open</span>(<span class="st">'test.txt'</span>, <span class="st">'r'</span>)</span>
+<span id="cb231-2"><a href="#cb231-2" aria-hidden="true" tabindex="-1"></a>theline <span class="op">=</span> f.readline()</span>
+<span id="cb231-3"><a href="#cb231-3" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="bu">len</span>(theline) <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb231-4"><a href="#cb231-4" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(theline, end <span class="op">=</span> <span class="st">''</span>)</span>
+<span id="cb231-5"><a href="#cb231-5" aria-hidden="true" tabindex="-1"></a>  theline <span class="op">=</span> f.readline()</span>
+<span id="cb231-6"><a href="#cb231-6" aria-hidden="true" tabindex="-1"></a>f.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="working-with-binary-files" class="level2">
 <h2 class="anchored" data-anchor-id="working-with-binary-files">Working with Binary Files:</h2>
@@ -2050,19 +2049,22 @@ The statement: 'All values are negative' is True</code></pre>
 <h2 class="anchored" data-anchor-id="fetching-a-file-from-the-web-data-from-the-cloud">Fetching a File From the Web: Data From the Cloud</h2>
 <p>To perform this we need the following module:</p>
 <div class="cell" data-execution_count="118">
-<div class="sourceCode cell-code" id="cb233"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb233-1"><a href="#cb233-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> urllib.request</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb232"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb232-1"><a href="#cb232-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> urllib.request</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let us fetch some financial data from a website:</p>
 <div class="cell" data-execution_count="119">
-<div class="sourceCode cell-code" id="cb234"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb234-1"><a href="#cb234-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://finanza.repubblica.it/BorsaItalia/Azioni/"</span></span>
-<span id="cb234-2"><a href="#cb234-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb234-3"><a href="#cb234-3" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> urllib.request.urlopen(url)</span>
-<span id="cb234-4"><a href="#cb234-4" aria-hidden="true" tabindex="-1"></a>str_all <span class="op">=</span> f.read(<span class="dv">500</span>) <span class="co"># read the first 500 characters</span></span>
-<span id="cb234-5"><a href="#cb234-5" aria-hidden="true" tabindex="-1"></a>f.close()</span>
-<span id="cb234-6"><a href="#cb234-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb234-7"><a href="#cb234-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(str_all)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb233"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb233-1"><a href="#cb233-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://finanza.repubblica.it/BorsaItalia/Azioni/"</span></span>
+<span id="cb233-2"><a href="#cb233-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb233-3"><a href="#cb233-3" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> urllib.request.urlopen(url)</span>
+<span id="cb233-4"><a href="#cb233-4" aria-hidden="true" tabindex="-1"></a>str_all <span class="op">=</span> f.read(<span class="dv">500</span>) <span class="co"># read the first 500 characters</span></span>
+<span id="cb233-5"><a href="#cb233-5" aria-hidden="true" tabindex="-1"></a>f.close()</span>
+<span id="cb233-6"><a href="#cb233-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb233-7"><a href="#cb233-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(str_all)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>b'\r\n\r\n&lt;!DOCTYPE html&gt;\r\n\r\n&lt;html xmlns="http://www.w3.org/1999/xhtml" class="no-js" lang="it"&gt;\r\n&lt;head&gt;&lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /&gt;&lt;title&gt;\r\n\tLa borsa italiana dalla A alla Z - Economia e Finanza - Repubblica.it\r\n&lt;/title&gt;&lt;!-- START TAG rep_CommonHeader --&gt;\n  &lt;link rel="stylesheet" media="all" href="//www.repstatic.it/cless/main/common/component/header-footer/2020-v1/css/style.css"&gt;\n  &lt;script&gt;\n    window.kwait = window.kwait || [];\n    window.kwait.deps = window'</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code></code></pre>
 </div>
 </div>
 <p>This program open the given link (**URL<em>:</em> Uniform Resource Locator*) and read it like a file. The following one stores the page:</p>
@@ -2457,7 +2459,7 @@ three ---&gt; tre
 <span id="cb295-2"><a href="#cb295-2" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
 <span id="cb295-3"><a href="#cb295-3" aria-hidden="true" tabindex="-1"></a><span class="bu">zip</span>(s, d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="143">
-<pre><code>&lt;zip at 0x13133e680&gt;</code></pre>
+<pre><code>&lt;zip at 0x146846680&gt;</code></pre>
 </div>
 </div>
 <p>The result is a <strong>zip object</strong>, which is a kind of <strong>iterator</strong> that knows how to iterate through a sequence:</p>
@@ -2583,7 +2585,7 @@ c &amp; 3</code></pre>
 <div class="sourceCode cell-code" id="cb311"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb311-1"><a href="#cb311-1" aria-hidden="true" tabindex="-1"></a>my_set <span class="op">=</span> {<span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'cherry'</span>, <span class="st">'banana'</span>}</span>
 <span id="cb311-2"><a href="#cb311-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_set, <span class="st">'---&gt;'</span>, <span class="bu">type</span>(my_set))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'cherry', 'banana', 'apple'} ---&gt; &lt;class 'set'&gt;</code></pre>
+<pre><code>{'banana', 'cherry', 'apple'} ---&gt; &lt;class 'set'&gt;</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="159">
@@ -2629,13 +2631,13 @@ c &amp; 3</code></pre>
 <div class="sourceCode cell-code" id="cb319"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb319-1"><a href="#cb319-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb319-2"><a href="#cb319-2" aria-hidden="true" tabindex="-1"></a><span class="bu">id</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="155">
-<pre><code>4366067136</code></pre>
+<pre><code>4359906752</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="163">
 <div class="sourceCode cell-code" id="cb321"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb321-1"><a href="#cb321-1" aria-hidden="true" tabindex="-1"></a><span class="bu">id</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="156">
-<pre><code>4366067136</code></pre>
+<pre><code>4359906752</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="164">
@@ -2649,7 +2651,7 @@ c &amp; 3</code></pre>
 <span id="cb325-2"><a href="#cb325-2" aria-hidden="true" tabindex="-1"></a>list_adress_1 <span class="op">=</span> <span class="bu">id</span>(my_list)</span>
 <span id="cb325-3"><a href="#cb325-3" aria-hidden="true" tabindex="-1"></a><span class="bu">id</span>(my_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="158">
-<pre><code>5120679232</code></pre>
+<pre><code>5460933312</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="166">
@@ -2657,7 +2659,7 @@ c &amp; 3</code></pre>
 <span id="cb327-2"><a href="#cb327-2" aria-hidden="true" tabindex="-1"></a>list_adress_2 <span class="op">=</span> <span class="bu">id</span>(my_list)</span>
 <span id="cb327-3"><a href="#cb327-3" aria-hidden="true" tabindex="-1"></a><span class="bu">id</span>(my_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="159">
-<pre><code>4566193344</code></pre>
+<pre><code>5460961728</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="167">
