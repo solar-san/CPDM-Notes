@@ -448,7 +448,7 @@ In Boolean algebra there are three logical operators: `and`, `or`, and `not`, wh
 **Truth Tables** and the **De Moivre Laws** are essential tools to compute logical expressions.
 We can combine logical (`and, or, not`) and relational operators (`==, >, <`, etc.) to build complex Boolean expressions: the latter have precedence over the former.
 
-[^4]: George Boole was the first mathematician to define and algebraic system of *logic* in the mid 19^th^ century
+[^4]: George Boole was the first mathematician to define an algebraic system of *logic* in the mid 19^th^ century.
 
 -   **Relational** operators:
     -   `x != y`: x is not equal to y.
