@@ -11,7 +11,7 @@ format:
     fig-align: center
     fig-width: 8
     fig-height: 8
-    html-math-method: mathml
+    html-math-method: katex
     code-overflow: scroll
     code-copy: hover
     highlight-style: github
