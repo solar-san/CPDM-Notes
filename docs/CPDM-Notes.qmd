@@ -11,10 +11,10 @@ format:
     fig-align: center
     fig-width: 8
     fig-height: 8
-    html-math-method: katex
+    html-math-method: mathml
     code-overflow: scroll
     code-copy: hover
-    highlight-style: gruvbox
+    highlight-style: github
     citations-hover: true
     footnotes-hover: true
     header-includes: |
@@ -1072,7 +1072,7 @@ The same result might be obtained more cleverly in a single line of code:
 fruit[::-1]
 ```
 
->**The moral is**: learn to actually *use* the goddamn program if you want an easy life!
+>**The moral is**: learn to actually *use* the program if you want an easy life!
 
 A **slice** is a segment of a strings; it can be selected similarly to the way we index characters: the operator `[n:m]` returns each characters between index `n` and `m`.
 
