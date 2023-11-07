@@ -1,5 +1,9 @@
 # CPDM-Notes
 
+![](https://raw.githubusercontent.com/solar-san/CPDM-Notes/main/docs/figures/CPDM-Notes_header.png)
+
+---
+
 Notes from a Python course in Computer Programming and Data Management for Data Analysts.
 
 > __The HTML version of the notes can be accessed at [this link](https://solar-san.github.io/CPDM-Notes/docs/CPDM-Notes.html).__
