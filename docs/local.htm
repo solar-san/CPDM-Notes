@@ -184,7 +184,7 @@ window.kw_pwlPerformanceTester = (function() {
 
 window.kw_site_mode = "page";
 if (window.location.href.indexOf("/embed/") > -1) {
-  window.kw_site_mode = "embed";
+    window.kw_site_mode = "embed";
 }
 try {
     window.kwasyncsetup = true;
@@ -216,10 +216,30 @@ function asr_error() {
 function kw_tlh_ready() {
     console.log('%c[head.js] %cTLH READY EVENT RECEIVED', 'padding: 2px; background: yellow; color: #000', 'padding: 2px; color: #00F'); 
 }
+
 function kw_js_seo_tricks(){
     // resets itself avoiding further executions due to readystate change
     window.kw_js_seo_tricks = function() {};
     console.log("[SEO TRICKS] Adding seo meta");
+    let argomento = '';
+
+    try {
+        if(window.location.href.indexOf("//www.lastampa.it/argomenti") > -1) {
+            //mi prendo l'argomento dopo lo /argomenti
+            let extractedArgument = window.location.href.split("/")[4];
+            //sostituisco trattini e trattini bassi con spazio
+            extractedArgument = extractedArgument.replace(/[_-]/g, " "); 
+            if (!(extractedArgument.includes("%22"))) {
+                extractedArgument = decodeURIComponent(extractedArgument);
+            }
+            //prima lettera maiuscola
+            argomento = extractedArgument.charAt(0).toUpperCase() + extractedArgument.slice(1);
+        }
+
+    } catch (e) {
+        console.log("[SEO TRICKS] Error extracting the argument in www.lastampa.it/argomenti", e);
+    }
+    
     var seo_tricks = [
         { 
             url_contains: "//www.lastampa.it/la-zampa/argomenti/cani",
@@ -235,13 +255,15 @@ function kw_js_seo_tricks(){
             url_contains: "//www.lastampa.it/la-zampa/argomenti/altri_animali",
             title: "Altri animali - La Zampa - La Stampa",
             description: "Notizie sugli animali nei loro ambienti naturali e nelle nostre cittÃ . Diritti, curiositÃ , consigli."
+        },
+        { 
+            url_contains: "//www.lastampa.it/argomenti",
+            title: `${argomento ? argomento : "Argomenti"}: notizie e aggiornamenti - La Stampa`,
+            description: `${argomento ? argomento : "Argomenti"}: aggiornamenti e approfondimenti. Tutte le notizie a tema ${argomento ? argomento : ""} pubblicate su La Stampa .`
         }
     ];
 
-    if(window.location.href.indexOf("//www.lastampa.it/la-zampa") < 0) {
-        console.log("[SEO TRICKS] DIDNT MATCH LA ZAMPA - Aborting seo trick");
-        return;
-    }
+
     if(!window.pageType) {
         console.log("[SEO TRICKS] Missing pagetype....aborting");
         return;
@@ -265,7 +287,7 @@ function kw_js_seo_tricks(){
     } catch(e) {
         console.log("[SEO TRICKS] ERROR EXECUTING SEO TRICKS", e);
     }
-}
+}  
 
 if (document.readyState !== 'loading') {
     window.kw_js_seo_tricks();
@@ -818,187 +840,187 @@ if (document.readyState !== 'loading') {
 			<td class="long-fixed-col text-bold">
                             <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl02_linkDescription" rel="IT0005439861" href="/Company/?symbol=ABP:IM" target="_parent">A.B.P. Nocivelli</a>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl02_lblLastPrice">3,70</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl02_lblLastPrice">3,90</span>
                         </td><td class="text-bold">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl02_lblPercentChange" class="aumento">+3,93%</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl02_lblPercentChange" class="stabile">INV.</span>
                         </td><td class="text-center">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl02_lblLastMovement">23/10/2023</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl02_lblLastMovement">15.15</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl02_lblOpen">3,66</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl02_lblOpen">3,94</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl02_lblLow">3,66</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl02_lblLow">3,90</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl02_lblHigh">3,70</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl02_lblHigh">3,96</span>
                         </td>
 		</tr><tr>
 			<td class="long-fixed-col text-bold">
                             <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl03_linkDescription" rel="IT0001233417" href="/Company/?symbol=A2A:IM" target="_parent">A2A</a>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl03_lblLastPrice">1,70</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl03_lblLastPrice">1,96</span>
                         </td><td class="text-bold">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl03_lblPercentChange" class="aumento">+0,89%</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl03_lblPercentChange" class="aumento">+0,20%</span>
                         </td><td class="text-center">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl03_lblLastMovement">23/10/2023</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl03_lblLastMovement">17.35</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl03_lblOpen">1,70</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl03_lblOpen">1,95</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl03_lblLow">1,65</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl03_lblLow">1,95</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl03_lblHigh">1,70</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl03_lblHigh">1,98</span>
                         </td>
 		</tr><tr>
 			<td class="long-fixed-col text-bold">
                             <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl04_linkDescription" rel="IT0005548521" href="/Company/?symbol=AAT:IM" target="_parent">Aatech</a>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl04_lblLastPrice">1,29</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl04_lblLastPrice">1,50</span>
                         </td><td class="text-bold">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl04_lblPercentChange" class="stabile">INV.</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl04_lblPercentChange" class="aumento">+6,76%</span>
                         </td><td class="text-center">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl04_lblLastMovement">23/10/2023</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl04_lblLastMovement">17.35</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl04_lblOpen">---</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl04_lblOpen">1,50</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl04_lblLow">---</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl04_lblLow">1,50</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl04_lblHigh">---</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl04_lblHigh">1,50</span>
                         </td>
 		</tr><tr>
 			<td class="long-fixed-col text-bold">
-                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl05_linkDescription" rel="IT0005466294" href="/Company/?symbol=ABC:IM" target="_parent">Abc Company</a>
+                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl05_linkDescription" rel="US00287Y1091" href="/Company/?symbol=1ABBV:IM" target="_parent">Abbvie</a>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl05_lblLastPrice">3,70</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl05_lblLastPrice">135,50</span>
                         </td><td class="text-bold">
                             <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl05_lblPercentChange" class="stabile">INV.</span>
                         </td><td class="text-center">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl05_lblLastMovement">23/10/2023</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl05_lblLastMovement">14.42</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl05_lblOpen">---</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl05_lblOpen">135,50</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl05_lblLow">---</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl05_lblLow">135,50</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl05_lblHigh">---</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl05_lblHigh">135,50</span>
                         </td>
 		</tr><tr>
 			<td class="long-fixed-col text-bold">
-                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl06_linkDescription" rel="IT0005445280" href="/Company/?symbol=ABT:IM" target="_parent">Abitare In</a>
+                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl06_linkDescription" rel="IT0005466294" href="/Company/?symbol=ABC:IM" target="_parent">Abc Company</a>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl06_lblLastPrice">5,20</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl06_lblLastPrice">3,70</span>
                         </td><td class="text-bold">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl06_lblPercentChange" class="aumento">+0,78%</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl06_lblPercentChange" class="stabile">INV.</span>
                         </td><td class="text-center">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl06_lblLastMovement">23/10/2023</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl06_lblLastMovement">02/11/2023</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl06_lblOpen">5,24</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl06_lblOpen">---</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl06_lblLow">5,10</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl06_lblLow">---</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl06_lblHigh">5,24</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl06_lblHigh">---</span>
                         </td>
 		</tr><tr>
 			<td class="long-fixed-col text-bold">
-                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl07_linkDescription" rel="IT0001207098" href="/Company/?symbol=ACE:IM" target="_parent">Acea</a>
+                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl07_linkDescription" rel="IT0005445280" href="/Company/?symbol=ABT:IM" target="_parent">Abitare In</a>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl07_lblLastPrice">10,85</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl07_lblLastPrice">5,36</span>
                         </td><td class="text-bold">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl07_lblPercentChange" class="aumento">+0,65%</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl07_lblPercentChange" class="aumento">+2,29%</span>
                         </td><td class="text-center">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl07_lblLastMovement">23/10/2023</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl07_lblLastMovement">17.35</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl07_lblOpen">10,72</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl07_lblOpen">5,22</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl07_lblLow">10,55</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl07_lblLow">5,20</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl07_lblHigh">10,91</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl07_lblHigh">5,36</span>
                         </td>
 		</tr><tr>
 			<td class="long-fixed-col text-bold">
-                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl08_linkDescription" rel="IT0001382024" href="/Company/?symbol=AC5:IM" target="_parent">Acinque</a>
+                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl08_linkDescription" rel="IT0001207098" href="/Company/?symbol=ACE:IM" target="_parent">Acea</a>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl08_lblLastPrice">1,78</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl08_lblLastPrice">13,21</span>
                         </td><td class="text-bold">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl08_lblPercentChange" class="aumento">+1,14%</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl08_lblPercentChange" class="aumento">+1,93%</span>
                         </td><td class="text-center">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl08_lblLastMovement">23/10/2023</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl08_lblLastMovement">17.35</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl08_lblOpen">1,72</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl08_lblOpen">12,91</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl08_lblLow">1,72</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl08_lblLow">12,87</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl08_lblHigh">1,78</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl08_lblHigh">13,21</span>
                         </td>
 		</tr><tr>
 			<td class="long-fixed-col text-bold">
-                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl09_linkDescription" rel="IT0005443061" href="/Company/?symbol=ACQ:IM" target="_parent">Acquazzurra</a>
+                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl09_linkDescription" rel="IT0001382024" href="/Company/?symbol=AC5:IM" target="_parent">Acinque</a>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl09_lblLastPrice">9,90</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl09_lblLastPrice">1,89</span>
                         </td><td class="text-bold">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl09_lblPercentChange" class="stabile">INV.</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl09_lblPercentChange" class="diminuzione">-1,05%</span>
                         </td><td class="text-center">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl09_lblLastMovement">23/10/2023</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl09_lblLastMovement">16.02</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl09_lblOpen">---</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl09_lblOpen">1,92</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl09_lblLow">---</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl09_lblLow">1,88</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl09_lblHigh">---</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl09_lblHigh">1,92</span>
                         </td>
 		</tr><tr>
 			<td class="long-fixed-col text-bold">
-                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl10_linkDescription" rel="DE000A1EWWW0" href="/Company/?symbol=1ADS:IM" target="_parent">Adidas</a>
+                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl10_linkDescription" rel="IT0005443061" href="/Company/?symbol=ACQ:IM" target="_parent">Acquazzurra</a>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl10_lblLastPrice">169,10</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl10_lblLastPrice">9,90</span>
                         </td><td class="text-bold">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl10_lblPercentChange" class="diminuzione">-0,29%</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl10_lblPercentChange" class="stabile">INV.</span>
                         </td><td class="text-center">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl10_lblLastMovement">23/10/2023</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl10_lblLastMovement">02/11/2023</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl10_lblOpen">169,60</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl10_lblOpen">---</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl10_lblLow">166,66</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl10_lblLow">---</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl10_lblHigh">169,60</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl10_lblHigh">---</span>
                         </td>
 		</tr><tr>
 			<td class="long-fixed-col text-bold">
-                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl11_linkDescription" rel="US0079031078" href="/Company/?symbol=1AMD:IM" target="_parent">Advanced Micro Devices</a>
+                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl11_linkDescription" rel="ES0167050915" href="/Company/?symbol=1ACS:IM" target="_parent">Acs Actividades Cons.Y Servicios</a>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl11_lblLastPrice">94,88</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl11_lblLastPrice">---</span>
                         </td><td class="text-bold">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl11_lblPercentChange" class="diminuzione">-1,35%</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl11_lblPercentChange" class="stabile">INV.</span>
                         </td><td class="text-center">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl11_lblLastMovement">23/10/2023</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl11_lblLastMovement">---</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl11_lblOpen">96,16</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl11_lblOpen">---</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl11_lblLow">94,61</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl11_lblLow">---</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl11_lblHigh">96,36</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl11_lblHigh">---</span>
                         </td>
 		</tr><tr>
 			<td class="long-fixed-col text-bold">
-                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl12_linkDescription" rel="IT0001384590" href="/Company/?symbol=AEF:IM" target="_parent">Aeffe</a>
+                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl12_linkDescription" rel="DE000A1EWWW0" href="/Company/?symbol=1ADS:IM" target="_parent">Adidas</a>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl12_lblLastPrice">0,77</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl12_lblLastPrice">190,60</span>
                         </td><td class="text-bold">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl12_lblPercentChange" class="stabile">INV.</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl12_lblPercentChange" class="diminuzione">-3,39%</span>
                         </td><td class="text-center">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl12_lblLastMovement">23/10/2023</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl12_lblLastMovement">17.29</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl12_lblOpen">0,79</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl12_lblOpen">195,60</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl12_lblLow">0,77</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl12_lblLow">188,14</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl12_lblHigh">0,79</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl12_lblHigh">195,60</span>
                         </td>
 		</tr><tr>
 			<td class="long-fixed-col text-bold">
-                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl13_linkDescription" rel="NL0000303709" href="/Company/?symbol=1AGN:IM" target="_parent">Aegon</a>
+                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl13_linkDescription" rel="LU1250154413" href="/Company/?symbol=1ADJ:IM" target="_parent">Adler Group</a>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl13_lblLastPrice">4,52</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl13_lblLastPrice">---</span>
                         </td><td class="text-bold">
                             <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl13_lblPercentChange" class="stabile">INV.</span>
                         </td><td class="text-center">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl13_lblLastMovement">02/10/2023</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl13_lblLastMovement">---</span>
                         </td><td>
                             <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl13_lblOpen">---</span>
                         </td><td>
@@ -1008,13 +1030,13 @@ if (document.readyState !== 'loading') {
                         </td>
 		</tr><tr>
 			<td class="long-fixed-col text-bold">
-                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl14_linkDescription" rel="BMG0112X1056" href="/Company/?symbol=1AGN:IM" target="_parent">Aegon</a>
+                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl14_linkDescription" rel="US00724F1012" href="/Company/?symbol=1ADBE:IM" target="_parent">Adobe</a>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl14_lblLastPrice">4,62</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl14_lblLastPrice">555,20</span>
                         </td><td class="text-bold">
                             <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl14_lblPercentChange" class="stabile">INV.</span>
                         </td><td class="text-center">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl14_lblLastMovement">13/10/2023</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl14_lblLastMovement">06/12/2023</span>
                         </td><td>
                             <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl14_lblOpen">---</span>
                         </td><td>
@@ -1024,205 +1046,205 @@ if (document.readyState !== 'loading') {
                         </td>
 		</tr><tr>
 			<td class="long-fixed-col text-bold">
-                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl15_linkDescription" rel="IT0001006128" href="/Company/?symbol=ADB:IM" target="_parent">Aeroporto Guglielmo Marconi di Bologna</a>
+                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl15_linkDescription" rel="US0079031078" href="/Company/?symbol=1AMD:IM" target="_parent">Advanced Micro Devices</a>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl15_lblLastPrice">8,06</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl15_lblLastPrice">116,18</span>
                         </td><td class="text-bold">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl15_lblPercentChange" class="diminuzione">-1,23%</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl15_lblPercentChange" class="aumento">+4,44%</span>
                         </td><td class="text-center">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl15_lblLastMovement">23/10/2023</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl15_lblLastMovement">17.35</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl15_lblOpen">8,06</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl15_lblOpen">109,82</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl15_lblLow">8,06</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl15_lblLow">109,82</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl15_lblHigh">8,22</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl15_lblHigh">116,50</span>
                         </td>
 		</tr><tr>
 			<td class="long-fixed-col text-bold">
-                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl16_linkDescription" rel="IT0005421919" href="/Company/?symbol=AGA:IM" target="_parent">Agatos</a>
+                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl16_linkDescription" rel="IT0001384590" href="/Company/?symbol=AEF:IM" target="_parent">Aeffe</a>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl16_lblLastPrice">0,24</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl16_lblLastPrice">0,76</span>
                         </td><td class="text-bold">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl16_lblPercentChange" class="stabile">INV.</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl16_lblPercentChange" class="aumento">+0,40%</span>
                         </td><td class="text-center">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl16_lblLastMovement">23/10/2023</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl16_lblLastMovement">17.35</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl16_lblOpen">---</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl16_lblOpen">0,77</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl16_lblLow">---</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl16_lblLow">0,74</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl16_lblHigh">---</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl16_lblHigh">0,77</span>
                         </td>
 		</tr><tr>
 			<td class="long-fixed-col text-bold">
-                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl17_linkDescription" rel="BE0974264930" href="/Company/?symbol=1AGS:IM" target="_parent">Ageas</a>
+                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl17_linkDescription" rel="ES0105046009" href="/Company/?symbol=1AENA:IM" target="_parent">Aena Sme</a>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl17_lblLastPrice">37,40</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl17_lblLastPrice">---</span>
                         </td><td class="text-bold">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl17_lblPercentChange" class="diminuzione">-2,86%</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl17_lblPercentChange" class="stabile">INV.</span>
                         </td><td class="text-center">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl17_lblLastMovement">23/10/2023</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl17_lblLastMovement">---</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl17_lblOpen">38,00</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl17_lblOpen">---</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl17_lblLow">37,40</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl17_lblLow">---</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl17_lblHigh">38,00</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl17_lblHigh">---</span>
                         </td>
 		</tr><tr>
 			<td class="long-fixed-col text-bold">
-                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl18_linkDescription" rel="NL0011794037" href="/Company/?symbol=1AD:IM" target="_parent">Ahold Del</a>
+                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl18_linkDescription" rel="IT0001006128" href="/Company/?symbol=ADB:IM" target="_parent">Aeroporto Guglielmo Marconi di Bologna</a>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl18_lblLastPrice">27,36</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl18_lblLastPrice">8,30</span>
                         </td><td class="text-bold">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl18_lblPercentChange" class="aumento">+1,31%</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl18_lblPercentChange" class="aumento">+0,24%</span>
                         </td><td class="text-center">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl18_lblLastMovement">23/10/2023</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl18_lblLastMovement">17.14</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl18_lblOpen">27,22</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl18_lblOpen">8,26</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl18_lblLow">27,22</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl18_lblLow">8,26</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl18_lblHigh">27,36</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl18_lblHigh">8,30</span>
                         </td>
 		</tr><tr>
 			<td class="long-fixed-col text-bold">
-                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl19_linkDescription" rel="FR001400J770" href="/Company/?symbol=1AF:IM" target="_parent">Air France-Klm</a>
+                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl19_linkDescription" rel="IT0005421919" href="/Company/?symbol=AGA:IM" target="_parent">Agatos</a>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl19_lblLastPrice">11,31</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl19_lblLastPrice">0,24</span>
                         </td><td class="text-bold">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl19_lblPercentChange" class="diminuzione">-1,34%</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl19_lblPercentChange" class="stabile">INV.</span>
                         </td><td class="text-center">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl19_lblLastMovement">23/10/2023</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl19_lblLastMovement">02/11/2023</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl19_lblOpen">11,34</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl19_lblOpen">---</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl19_lblLow">11,00</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl19_lblLow">---</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl19_lblHigh">11,40</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl19_lblHigh">---</span>
                         </td>
 		</tr><tr>
 			<td class="long-fixed-col text-bold">
-                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl20_linkDescription" rel="NL0000235190" href="/Company/?symbol=1AIR:IM" target="_parent">Airbus</a>
+                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl20_linkDescription" rel="BE0974264930" href="/Company/?symbol=1AGS:IM" target="_parent">Ageas</a>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl20_lblLastPrice">122,64</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl20_lblLastPrice">40,34</span>
                         </td><td class="text-bold">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl20_lblPercentChange" class="aumento">+0,94%</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl20_lblPercentChange" class="stabile">INV.</span>
                         </td><td class="text-center">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl20_lblLastMovement">23/10/2023</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl20_lblLastMovement">06/12/2023</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl20_lblOpen">121,00</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl20_lblOpen">---</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl20_lblLow">121,00</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl20_lblLow">---</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl20_lblHigh">122,64</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl20_lblHigh">---</span>
                         </td>
 		</tr><tr>
 			<td class="long-fixed-col text-bold">
-                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl21_linkDescription" rel="IT0005446700" href="/Company/?symbol=ALA:IM" target="_parent">ALA</a>
+                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl21_linkDescription" rel="US00846U1016" href="/Company/?symbol=1A:IM" target="_parent">Agilent Technologies</a>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl21_lblLastPrice">14,90</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl21_lblLastPrice">---</span>
                         </td><td class="text-bold">
                             <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl21_lblPercentChange" class="stabile">INV.</span>
                         </td><td class="text-center">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl21_lblLastMovement">23/10/2023</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl21_lblLastMovement">---</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl21_lblOpen">14,60</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl21_lblOpen">---</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl21_lblLow">14,30</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl21_lblLow">---</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl21_lblHigh">14,90</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl21_lblHigh">---</span>
                         </td>
 		</tr><tr>
 			<td class="long-fixed-col text-bold">
-                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl22_linkDescription" rel="IT0004720733" href="/Company/?symbol=ARN:IM" target="_parent">Alerion</a>
+                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl22_linkDescription" rel="NL0011794037" href="/Company/?symbol=1AD:IM" target="_parent">Ahold Del</a>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl22_lblLastPrice">24,30</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl22_lblLastPrice">26,94</span>
                         </td><td class="text-bold">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl22_lblPercentChange" class="stabile">INV.</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl22_lblPercentChange" class="diminuzione">-0,04%</span>
                         </td><td class="text-center">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl22_lblLastMovement">23/10/2023</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl22_lblLastMovement">16.03</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl22_lblOpen">24,95</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl22_lblOpen">26,94</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl22_lblLow">23,95</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl22_lblLow">26,94</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl22_lblHigh">24,95</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl22_lblHigh">26,94</span>
                         </td>
 		</tr><tr>
 			<td class="long-fixed-col text-bold">
-                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl23_linkDescription" rel="IT0005244030" href="/Company/?symbol=ABTG:IM" target="_parent">Alfio Bardolla</a>
+                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl23_linkDescription" rel="FR001400J770" href="/Company/?symbol=1AF:IM" target="_parent">Air France-Klm</a>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl23_lblLastPrice">2,12</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl23_lblLastPrice">12,26</span>
                         </td><td class="text-bold">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl23_lblPercentChange" class="aumento">+1,92%</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl23_lblPercentChange" class="diminuzione">-2,47%</span>
                         </td><td class="text-center">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl23_lblLastMovement">23/10/2023</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl23_lblLastMovement">17.08</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl23_lblOpen">2,08</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl23_lblOpen">12,10</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl23_lblLow">2,08</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl23_lblLow">11,84</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl23_lblHigh">2,12</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl23_lblHigh">12,26</span>
                         </td>
 		</tr><tr>
 			<td class="long-fixed-col text-bold">
-                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl24_linkDescription" rel="IT0005466039" href="/Company/?symbol=ALFO:IM" target="_parent">Alfonsino</a>
+                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl24_linkDescription" rel="US0091581068" href="/Company/?symbol=1APD:IM" target="_parent">Air Products And Chemicals</a>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl24_lblLastPrice">0,70</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl24_lblLastPrice">251,30</span>
                         </td><td class="text-bold">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl24_lblPercentChange" class="diminuzione">-0,29%</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl24_lblPercentChange" class="aumento">+2,99%</span>
                         </td><td class="text-center">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl24_lblLastMovement">23/10/2023</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl24_lblLastMovement">9.00</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl24_lblOpen">0,69</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl24_lblOpen">251,30</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl24_lblLow">0,69</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl24_lblLow">251,30</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl24_lblHigh">0,70</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl24_lblHigh">251,30</span>
                         </td>
 		</tr><tr>
 			<td class="long-fixed-col text-bold">
-                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl25_linkDescription" rel="IT0004359037" href="/Company/?symbol=ALW:IM" target="_parent">Algowatt</a>
+                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl25_linkDescription" rel="US0090661010" href="/Company/?symbol=1ABNB:IM" target="_parent">Airbnb</a>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl25_lblLastPrice">0,34</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl25_lblLastPrice">125,82</span>
                         </td><td class="text-bold">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl25_lblPercentChange" class="aumento">+1,18%</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl25_lblPercentChange" class="diminuzione">-1,47%</span>
                         </td><td class="text-center">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl25_lblLastMovement">23/10/2023</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl25_lblLastMovement">12.00</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl25_lblOpen">0,35</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl25_lblOpen">125,82</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl25_lblLow">0,34</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl25_lblLow">125,82</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl25_lblHigh">0,36</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl25_lblHigh">125,82</span>
                         </td>
 		</tr><tr>
 			<td class="long-fixed-col text-bold">
-                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl26_linkDescription" rel="IT0005314635" href="/Company/?symbol=ALK:IM" target="_parent">Alkemy</a>
+                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl26_linkDescription" rel="NL0000235190" href="/Company/?symbol=1AIR:IM" target="_parent">Airbus</a>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl26_lblLastPrice">7,28</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl26_lblLastPrice">137,78</span>
                         </td><td class="text-bold">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl26_lblPercentChange" class="diminuzione">-1,49%</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl26_lblPercentChange" class="diminuzione">-0,51%</span>
                         </td><td class="text-center">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl26_lblLastMovement">23/10/2023</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl26_lblLastMovement">14.31</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl26_lblOpen">7,26</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl26_lblOpen">138,34</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl26_lblLow">7,26</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl26_lblLow">137,78</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl26_lblHigh">7,28</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl26_lblHigh">138,34</span>
                         </td>
 		</tr><tr>
 			<td class="long-fixed-col text-bold">
-                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl27_linkDescription" rel="IT0005461303" href="/Company/?symbol=CORE:IM" target="_parent">Allcore</a>
+                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl27_linkDescription" rel="DE000A0WMPJ6" href="/Company/?symbol=1AIXA:IM" target="_parent">Aixtron</a>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl27_lblLastPrice">1,95</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl27_lblLastPrice">---</span>
                         </td><td class="text-bold">
                             <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl27_lblPercentChange" class="stabile">INV.</span>
                         </td><td class="text-center">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl27_lblLastMovement">23/10/2023</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl27_lblLastMovement">---</span>
                         </td><td>
                             <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl27_lblOpen">---</span>
                         </td><td>
@@ -1232,83 +1254,83 @@ if (document.readyState !== 'loading') {
                         </td>
 		</tr><tr>
 			<td class="long-fixed-col text-bold">
-                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl28_linkDescription" rel="DE0008404005" href="/Company/?symbol=1ALV:IM" target="_parent">Allianz</a>
+                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl28_linkDescription" rel="US00971T1016" href="/Company/?symbol=1AKAM:IM" target="_parent">Akamai Technologies</a>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl28_lblLastPrice">218,00</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl28_lblLastPrice">---</span>
                         </td><td class="text-bold">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl28_lblPercentChange" class="diminuzione">-0,05%</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl28_lblPercentChange" class="stabile">INV.</span>
                         </td><td class="text-center">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl28_lblLastMovement">23/10/2023</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl28_lblLastMovement">---</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl28_lblOpen">218,10</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl28_lblOpen">---</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl28_lblLow">215,85</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl28_lblLow">---</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl28_lblHigh">218,85</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl28_lblHigh">---</span>
                         </td>
 		</tr><tr>
 			<td class="long-fixed-col text-bold">
-                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl29_linkDescription" rel="IT0005434615" href="/Company/?symbol=AIW:IM" target="_parent">Almawave</a>
+                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl29_linkDescription" rel="IT0005446700" href="/Company/?symbol=ALA:IM" target="_parent">ALA</a>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl29_lblLastPrice">3,95</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl29_lblLastPrice">14,70</span>
                         </td><td class="text-bold">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl29_lblPercentChange" class="diminuzione">-1,00%</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl29_lblPercentChange" class="diminuzione">-2,33%</span>
                         </td><td class="text-center">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl29_lblLastMovement">23/10/2023</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl29_lblLastMovement">17.35</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl29_lblOpen">3,86</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl29_lblOpen">14,75</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl29_lblLow">3,86</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl29_lblLow">14,70</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl29_lblHigh">4,00</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl29_lblHigh">14,75</span>
                         </td>
 		</tr><tr>
 			<td class="long-fixed-col text-bold">
-                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl30_linkDescription" rel="US02079K3059" href="/Company/?symbol=1GOOGL:IM" target="_parent">Alphabet Classe A</a>
+                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl30_linkDescription" rel="US0138721065" href="/Company/?symbol=1AA:IM" target="_parent">Alcoa</a>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl30_lblLastPrice">127,94</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl30_lblLastPrice">---</span>
                         </td><td class="text-bold">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl30_lblPercentChange" class="aumento">+0,20%</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl30_lblPercentChange" class="stabile">INV.</span>
                         </td><td class="text-center">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl30_lblLastMovement">23/10/2023</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl30_lblLastMovement">---</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl30_lblOpen">128,00</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl30_lblOpen">---</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl30_lblLow">126,50</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl30_lblLow">---</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl30_lblHigh">128,66</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl30_lblHigh">---</span>
                         </td>
 		</tr><tr>
 			<td class="long-fixed-col text-bold">
-                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl31_linkDescription" rel="US02079K1079" href="/Company/?symbol=1GOOG:IM" target="_parent">Alphabet Classe C</a>
+                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl31_linkDescription" rel="IT0004720733" href="/Company/?symbol=ARN:IM" target="_parent">Alerion</a>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl31_lblLastPrice">129,22</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl31_lblLastPrice">24,95</span>
                         </td><td class="text-bold">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl31_lblPercentChange" class="diminuzione">-0,09%</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl31_lblPercentChange" class="aumento">+1,01%</span>
                         </td><td class="text-center">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl31_lblLastMovement">23/10/2023</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl31_lblLastMovement">17.35</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl31_lblOpen">129,18</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl31_lblOpen">24,95</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl31_lblLow">128,60</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl31_lblLow">24,55</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl31_lblHigh">129,22</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl31_lblHigh">25,00</span>
                         </td>
 		</tr><tr>
 			<td class="long-fixed-col text-bold">
-                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl32_linkDescription" rel="IT0005472730" href="/Company/?symbol=AGP:IM" target="_parent">Altea Green Power</a>
+                            <a id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl32_linkDescription" rel="IT0005244030" href="/Company/?symbol=ABTG:IM" target="_parent">Alfio Bardolla</a>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl32_lblLastPrice">4,45</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl32_lblLastPrice">2,43</span>
                         </td><td class="text-bold">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl32_lblPercentChange" class="aumento">+3,73%</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl32_lblPercentChange" class="diminuzione">-1,62%</span>
                         </td><td class="text-center">
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl32_lblLastMovement">23/10/2023</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl32_lblLastMovement">17.11</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl32_lblOpen">4,26</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl32_lblOpen">2,47</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl32_lblLow">4,06</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl32_lblLow">2,42</span>
                         </td><td>
-                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl32_lblHigh">4,47</span>
+                            <span id="ctl00_ContentLeft_RoundedTableListing_gridListino_ctl32_lblHigh">2,47</span>
                         </td>
 		</tr>
 	</table>
@@ -1335,7 +1357,7 @@ if (document.readyState !== 'loading') {
 <div id="ctl00_ContentLeft_PagerBottom_pnlPaginator">
 	
               <nav class="pagination">     
-                  <div class="pagination-index">Pagina <strong>1</strong> di 2</div>         
+                  <div class="pagination-index">Pagina <strong>1</strong> di 3</div>         
     
                   <ul class="pagination ">
         <li id="ctl00_ContentLeft_PagerBottom_PreviusLi" class="disabled">
@@ -1344,14 +1366,18 @@ if (document.readyState !== 'loading') {
                 </a>     
         </li>
               <li id="PG-1" class="hidden active">
-                  <a id="ctl00_ContentLeft_PagerBottom_repPaginator_ctl00_linkPage" href="https://finanza.repubblica.it/BorsaItalia/Azioni/?pgt=MHw1MQ">1</a>
+                  <a id="ctl00_ContentLeft_PagerBottom_repPaginator_ctl00_linkPage" href="https://finanza.repubblica.it/BorsaItalia/Azioni/?pgt=MHw3Ng">1</a>
               </li>
           
               <li id="PG-2" class="hidden ">
-                  <a id="ctl00_ContentLeft_PagerBottom_repPaginator_ctl01_linkPage" href="https://finanza.repubblica.it/BorsaItalia/Azioni/?pgt=MXw1MQ">2</a>
+                  <a id="ctl00_ContentLeft_PagerBottom_repPaginator_ctl01_linkPage" href="https://finanza.repubblica.it/BorsaItalia/Azioni/?pgt=MXw3Ng">2</a>
+              </li>
+          
+              <li id="PG-3" class="hidden ">
+                  <a id="ctl00_ContentLeft_PagerBottom_repPaginator_ctl02_linkPage" href="https://finanza.repubblica.it/BorsaItalia/Azioni/?pgt=Mnw3Ng">3</a>
               </li>
           <li id="ctl00_ContentLeft_PagerBottom_NextLi">
-      <a id="ctl00_ContentLeft_PagerBottom_linkNext" class="Next" href="https://finanza.repubblica.it/BorsaItalia/Azioni/?pgt=MXw1MQ">
+      <a id="ctl00_ContentLeft_PagerBottom_linkNext" class="Next" href="https://finanza.repubblica.it/BorsaItalia/Azioni/?pgt=MXw3Ng">
         <span aria-hidden="true" class="rep-icon-right-arrow"></span>
           </a>    
       
@@ -1363,7 +1389,7 @@ if (document.readyState !== 'loading') {
     <script type="text/javascript">
         kwait.push(["jquery_js", "SepPaginator"]);
         function SepPaginator(){
-            var totPGpages = 2; 
+            var totPGpages = 3; 
             var maxButtons = 11;
             var halfMaxButtons = maxButtons /2;
             var actualActive = 0;
@@ -1514,8 +1540,8 @@ if (document.readyState !== 'loading') {
                         <a id="marketOverview_IndicesPanel_repRow_ctl01_linkDescription" class="firstCell" rel="29.DJI" href="https://finanza.repubblica.it/Indici/Dettaglio?symbol=DJI:IND" target="_parent">Dj 30 Industrials Average</a>
                         
                     </span>
-                    <span id="marketOverview_IndicesPanel_repRow_ctl01_lblLastPrice" class="col-2">32.936</span>
-                    <span id="marketOverview_IndicesPanel_repRow_ctl01_lblPercentChange" class="col-3 diminuzione">-0,58%</span>
+                    <span id="marketOverview_IndicesPanel_repRow_ctl01_lblLastPrice" class="col-2">36.051</span>
+                    <span id="marketOverview_IndicesPanel_repRow_ctl01_lblPercentChange" class="col-3 diminuzione">-0,01%</span>
                     
                 </li>
 
@@ -1525,8 +1551,8 @@ if (document.readyState !== 'loading') {
                         <a id="marketOverview_IndicesPanel_repRow_ctl02_linkDescription" class="firstCell" rel="15.UKX.GBP" href="https://finanza.repubblica.it/Indici/Dettaglio?symbol=UKX:IND" target="_parent">FTSE 100</a>
                         
                     </span>
-                    <span id="marketOverview_IndicesPanel_repRow_ctl02_lblLastPrice" class="col-2">7.375</span>
-                    <span id="marketOverview_IndicesPanel_repRow_ctl02_lblPercentChange" class="col-3 diminuzione">-0,37%</span>
+                    <span id="marketOverview_IndicesPanel_repRow_ctl02_lblLastPrice" class="col-2">7.514</span>
+                    <span id="marketOverview_IndicesPanel_repRow_ctl02_lblPercentChange" class="col-3 diminuzione">-0,02%</span>
                     
                 </li>
 
@@ -1536,8 +1562,8 @@ if (document.readyState !== 'loading') {
                         <a id="marketOverview_IndicesPanel_repRow_ctl03_linkDescription" class="firstCell" rel="CB.FTSEMIB" href="https://finanza.repubblica.it/Indici/Dettaglio?symbol=FTSEMIB:IND" target="_parent">FTSE MIB</a>
                         
                     </span>
-                    <span id="marketOverview_IndicesPanel_repRow_ctl03_lblLastPrice" class="col-2">27.559</span>
-                    <span id="marketOverview_IndicesPanel_repRow_ctl03_lblPercentChange" class="col-3 aumento">+0,74%</span>
+                    <span id="marketOverview_IndicesPanel_repRow_ctl03_lblLastPrice" class="col-2">30.122</span>
+                    <span id="marketOverview_IndicesPanel_repRow_ctl03_lblPercentChange" class="col-3 diminuzione">-0,67%</span>
                     
                 </li>
 
@@ -1547,8 +1573,8 @@ if (document.readyState !== 'loading') {
                         <a id="marketOverview_IndicesPanel_repRow_ctl04_linkDescription" class="firstCell" rel="F1.DAX" href="https://finanza.repubblica.it/Indici/Dettaglio?symbol=DAX:IND" target="_parent">Germany DAX</a>
                         
                     </span>
-                    <span id="marketOverview_IndicesPanel_repRow_ctl04_lblLastPrice" class="col-2">14.801</span>
-                    <span id="marketOverview_IndicesPanel_repRow_ctl04_lblPercentChange" class="col-3 aumento">+0,02%</span>
+                    <span id="marketOverview_IndicesPanel_repRow_ctl04_lblLastPrice" class="col-2">16.629</span>
+                    <span id="marketOverview_IndicesPanel_repRow_ctl04_lblPercentChange" class="col-3 diminuzione">-0,16%</span>
                     
                 </li>
 
@@ -1558,8 +1584,8 @@ if (document.readyState !== 'loading') {
                         <a id="marketOverview_IndicesPanel_repRow_ctl05_linkDescription" class="firstCell" rel="4C.CFDHSI" href="javascript: void(0);" target="_parent">Hang Seng Index*</a>
                         
                     </span>
-                    <span id="marketOverview_IndicesPanel_repRow_ctl05_lblLastPrice" class="col-2">17.152,35</span>
-                    <span id="marketOverview_IndicesPanel_repRow_ctl05_lblPercentChange" class="col-3 diminuzione">-1,04%</span>
+                    <span id="marketOverview_IndicesPanel_repRow_ctl05_lblLastPrice" class="col-2">16.463,26</span>
+                    <span id="marketOverview_IndicesPanel_repRow_ctl05_lblPercentChange" class="col-3 aumento">+0,83%</span>
                     
                 </li>
 
@@ -1569,8 +1595,8 @@ if (document.readyState !== 'loading') {
                         <a id="marketOverview_IndicesPanel_repRow_ctl06_linkDescription" class="firstCell" rel="41.COMP" href="https://finanza.repubblica.it/Indici/Dettaglio?symbol=COMP:IND" target="_parent">Nasdaq</a>
                         
                     </span>
-                    <span id="marketOverview_IndicesPanel_repRow_ctl06_lblLastPrice" class="col-2">13.018</span>
-                    <span id="marketOverview_IndicesPanel_repRow_ctl06_lblPercentChange" class="col-3 aumento">+0,27%</span>
+                    <span id="marketOverview_IndicesPanel_repRow_ctl06_lblLastPrice" class="col-2">14.311</span>
+                    <span id="marketOverview_IndicesPanel_repRow_ctl06_lblPercentChange" class="col-3 aumento">+1,16%</span>
                     
                 </li>
 
@@ -1580,8 +1606,8 @@ if (document.readyState !== 'loading') {
                         <a id="marketOverview_IndicesPanel_repRow_ctl07_linkDescription" class="firstCell" rel="4C.CFDNKY" href="javascript: void(0);" target="_parent">Nikkei 225*</a>
                         
                     </span>
-                    <span id="marketOverview_IndicesPanel_repRow_ctl07_lblLastPrice" class="col-2">31.259,36</span>
-                    <span id="marketOverview_IndicesPanel_repRow_ctl07_lblPercentChange" class="col-3 diminuzione">-0,54%</span>
+                    <span id="marketOverview_IndicesPanel_repRow_ctl07_lblLastPrice" class="col-2">33.430,00</span>
+                    <span id="marketOverview_IndicesPanel_repRow_ctl07_lblPercentChange" class="col-3 aumento">+1,90%</span>
                     
                 </li>
 
@@ -1744,7 +1770,7 @@ Status:OK
 <div class="separator"></div>
     </div>
 <script type="text/javascript">
-    var ArrayFixing = [['Baht tailandese','THB',38.658,20231023],['Brasilian Real','BRL',5.3524,20231023],['Corona ceca','CZK',24.645,20231023],['Corona danese','DKK',7.4634,20231023],['Corona islandese','ISK',146.9,20231023],['Corona norvegese','NOK',11.7985,20231023],['Corona svedese','SEK',11.7071,20231023],['Dollaro australiano','AUD',1.6805,20231023],['Dollaro canadese','CAD',1.4542,20231023],['Dollaro di Hong Kong','HKD',8.293,20231023],['Dollaro di Singapore','SGD',1.4541,20231023],['Dollaro neozelandese','NZD',1.822,20231023],['Dollaro USA','USD',1.0597,20231023],['Fiorino ungherese','HUF',381.98,20231023],['Franco svizzero','CHF',0.9461,20231023],['Lev bulgaro','BGN',1.9558,20231023],['Lira sterlina','GBP',0.8715,20231023],['Mexican peso','MXN',19.4413,20231023],['Nuova lira turca','TRY',29.7246,20231023],['Nuovo leu romeno','RON',4.9701,20231023],['Peso filippino','PHP',60.233,20231023],['Rand sudafricano','ZAR',20.1995,20231023],['Ringgit malese','MYR',5.0812,20231023],['Rupia Indiana','INR',88.101,20231023],['Rupia indonesiana','IDR',16890.5605,20231023],['Sheqel israeliano','ILS',4.304,20231023],['Won sudcoreano','KRW',1432.8,20231023],['Yen','JPY',158.91,20231023],['Yuan cinese','CNY',7.7529,20231023],['Zloty polacco','PLN',4.459,20231023]]
+    var ArrayFixing = [['Baht tailandese','THB',37.925,20231207],['Brasilian Real','BRL',5.2614,20231207],['Corona ceca','CZK',24.356,20231207],['Corona danese','DKK',7.4551,20231207],['Corona islandese','ISK',150.1,20231207],['Corona norvegese','NOK',11.7535,20231207],['Corona svedese','SEK',11.2557,20231207],['Dollaro australiano','AUD',1.6407,20231207],['Dollaro canadese','CAD',1.4656,20231207],['Dollaro di Hong Kong','HKD',8.4174,20231207],['Dollaro di Singapore','SGD',1.4436,20231207],['Dollaro neozelandese','NZD',1.7554,20231207],['Dollaro USA','USD',1.0771,20231207],['Fiorino ungherese','HUF',381.38,20231207],['Franco svizzero','CHF',0.9446,20231207],['Lev bulgaro','BGN',1.9558,20231207],['Lira sterlina','GBP',0.8575,20231207],['Mexican peso','MXN',18.6551,20231207],['Nuova lira turca','TRY',31.1627,20231207],['Nuovo leu romeno','RON',4.9658,20231207],['Peso filippino','PHP',59.569,20231207],['Rand sudafricano','ZAR',20.2056,20231207],['Ringgit malese','MYR',5.0344,20231207],['Rupia Indiana','INR',89.794,20231207],['Rupia indonesiana','IDR',16737.9707,20231207],['Sheqel israeliano','ILS',3.9861,20231207],['Won sudcoreano','KRW',1421.02,20231207],['Yen','JPY',156.18,20231207],['Yuan cinese','CNY',7.7058,20231207],['Zloty polacco','PLN',4.3313,20231207]]
 </script>
 <script type="text/javascript">
    
@@ -1949,7 +1975,9 @@ Status:OK
             <ul class="rep-page-footer__section__list">
                 <li><a target="_blank" href="https://lab.gedidigital.it/visual-lab/" title="Visual Lab">LAB</a></li>
                 <li><a target="_blank" href="https://www.mymovies.it/" title="MyMovies">MyMovies</a></li>
-                <li><a target="_blank" href="https://www.autoxy.it/" title="Offerte Auto Nuove" >AutoXY</a></li>
+                <li><a target="_blank" href="https://www.autoxy.it/" title="Offerte Auto Nuove">AutoXY</a></li>
+                <li><a target="_blank" href="https://www.formulapassion.it" title="Formula Passion">Formula Passion</a></li>
+                <li><a target="_blank" href="https://www.sport.it" title="Sport.it">Sport.it</a></li>
             </ul>
         </section>
       </div>
